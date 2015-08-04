@@ -13,7 +13,7 @@ extension NSMutableAttributedString {
     /// Appends an attributed string with a dynamic font
     ///
     /// :param: string A string you want to add.
-    /// :param: style Text style for dynamic font (ex. UIFontTextStyleBody).
+    /// :param: style A text style for dynamic font (ex. UIFontTextStyleBody).
     func append(string:String, withStyle style:String) {
         self.append(string, withFont: UIFont.preferredFontForTextStyle(style))
     }
@@ -21,7 +21,7 @@ extension NSMutableAttributedString {
     /// Appends an attributed string with a given font
     ///
     /// :param: string A string you want to add.
-    /// :param: font Self-explanatory.
+    /// :param: font An instance of UIFont.
     func append(string:String, withFont font:UIFont) {
         self.append(string, withAttributes: [NSFontAttributeName:font])
     }
