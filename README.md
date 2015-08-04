@@ -1,8 +1,9 @@
-# appendAttributedStringWithEase
+# appendAttributedStringWithEase.swift
 
-Simple NSMutableAttributedString extension that adds some methods to append string with different attributes.
+Simple extension that adds methods to append attributed strings.
 
-Here is some examples. Find more in the .playground file.
+Here are some examples. 
+Find more in the .playground file.
 ```swift
 var string = NSMutableAttributedString()
 
