@@ -2,11 +2,6 @@
 
 import UIKit
 
-let view = UIView(frame: CGRectMake(0, 0, 450, 300))
-let textView = UITextView(frame: view.bounds)
-view.addSubview(textView)
-
-
 var string = NSMutableAttributedString()
 
 string.appendSubheadline("You want weapons?\n")
@@ -18,6 +13,3 @@ string.append("This room's the greatest arsenal we could have!\n", withColor: .o
 string.append("Arm yourself\n\n", withColor: UIColor.grayColor(), style: UIFontTextStyleHeadline, andUnderlineStyle: NSUnderlineStyle.StyleThick)
 string.appendHeadline("© The Doctor\n")
 string.append("Quote by Russel T Davies", withColor: .purpleColor(), font: UIFont(name: "Georgia", size: 15)!, andStrikeThroughStyle: NSUnderlineStyle.StyleSingle)
-
-textView.attributedText = string
-view
