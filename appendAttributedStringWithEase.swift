@@ -10,27 +10,27 @@ import UIKit
 
 extension NSMutableAttributedString {
 
-    /// Adds a string with a dynamic font
+    /// Appends an attributed string with a dynamic font
     ///
     /// :param: string A string you want to add.
     /// :param: style Text style for dynamic font (ex. UIFontTextStyleBody).
-    func appendString(string:String, withStyle style:String) {
-        self.appendString(string, withFont: UIFont.preferredFontForTextStyle(style))
+    func append(string:String, withStyle style:String) {
+        self.append(string, withFont: UIFont.preferredFontForTextStyle(style))
     }
 
-    /// Adds a string with a given font
+    /// Appends an attributed string with a given font
     ///
     /// :param: string A string you want to add.
     /// :param: font Self-explanatory.
-    func appendString(string:String, withFont font:UIFont) {
-        self.appendString(string, withAttributes: [NSFontAttributeName:font])
+    func append(string:String, withFont font:UIFont) {
+        self.append(string, withAttributes: [NSFontAttributeName:font])
     }
 
-    /// Adds a string with a given attributes
+    /// Appends an attributed string with given attributes
     ///
     /// :param: string A string you want to add.
     /// :param: attributes The attributes for the new attributed string.
-    func appendString(string:String, withAttributes attributes:[NSObject : AnyObject]?) {
+    func append(string:String, withAttributes attributes:[NSObject : AnyObject]?) {
         self.appendAttributedString(NSAttributedString(string: string, attributes: attributes))
     }
 }
