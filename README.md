@@ -2,7 +2,7 @@
 
 Simple extension that adds methods to append attributed strings.
 
-All documented, saves lots of time. And space.
+All documented. Saves lots of time. And space.
 
 Here are some examples.
 
