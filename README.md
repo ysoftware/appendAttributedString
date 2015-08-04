@@ -2,6 +2,8 @@
 
 Simple extension that adds methods to append attributed strings.
 
+Supports dynamic fonts, colors, underlines and strike through.
+
 All documented. Saves lots of time. And space.
 
 Here are some examples.
