@@ -33,4 +33,49 @@ extension NSMutableAttributedString {
     func append(string:String, withAttributes attributes:[NSObject : AnyObject]?) {
         self.appendAttributedString(NSAttributedString(string: string, attributes: attributes))
     }
+
+    // MARK: - Dynamic Fonts
+
+    /// Appends an attributed string with a dynamic font of style Subheadline
+    ///
+    /// :param: string A string you want to add.
+    func appendSubheadline(string:String) {
+        self.append(string, withFont: UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline))
+    }
+
+    /// Appends an attributed string with a dynamic font of style Caption1
+    ///
+    /// :param: string A string you want to add.
+    func appendCaption1(string:String) {
+        self.append(string, withFont: UIFont.preferredFontForTextStyle(UIFontTextStyleCaption1))
+    }
+
+    /// Appends an attributed string with a dynamic font of style Caption2
+    ///
+    /// :param: string A string you want to add.
+    func appendCaption2(string:String) {
+        self.append(string, withFont: UIFont.preferredFontForTextStyle(UIFontTextStyleCaption2))
+    }
+
+    /// Appends an attributed string with a dynamic font of style Headline
+    ///
+    /// :param: string A string you want to add.
+    func appendHeadline(string:String) {
+        self.append(string, withFont: UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline))
+    }
+
+    /// Appends an attributed string with a dynamic font of style Footnote
+    ///
+    /// :param: string A string you want to add.
+    func appendFootnote(string:String) {
+        self.append(string, withFont: UIFont.preferredFontForTextStyle(UIFontTextStyleFootnote))
+    }
+
+    /// Appends an attributed string with a dynamic font of style Body
+    ///
+    /// :param: string A string you want to add.
+    func appendBody(string:String) {
+        self.append(string, withFont: UIFont.preferredFontForTextStyle(UIFontTextStyleBody))
+    }
+    
 }
