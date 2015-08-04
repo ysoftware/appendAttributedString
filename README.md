@@ -22,4 +22,6 @@ string.append("Quote by Russel T Davies", withColor: .purpleColor(), font: UIFon
 textView.attributedText = string
 ```
 
+![alt tag](appendAttributedStringWithEase/example.png)
+
 Download the playground demo and well... play with it.
