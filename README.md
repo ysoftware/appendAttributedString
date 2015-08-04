@@ -2,8 +2,8 @@
 
 Simple extension that adds methods to append attributed strings.
 
-Here are some examples. 
-Find more in the .playground file.
+Here are some examples.
+
 ```swift
 var string = NSMutableAttributedString()
 
@@ -19,3 +19,5 @@ string.append("Quote by Russel T Davies", withColor: .purpleColor(), font: UIFon
 
 textView.attributedText = string
 ```
+
+Download the playground demo and well... play with it.
