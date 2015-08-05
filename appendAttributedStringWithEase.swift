@@ -61,6 +61,15 @@ public extension NSMutableAttributedString {
     /// Appends an attributed string with underlined text of a given color and a dynamic font.
     ///
     /// :param: string A string you want to add.
+    /// :param: font An instance of UIFont.
+    /// :param: underlineStyle A style for the underline.
+    func append(string:String, withFont font:UIFont, andUnderlineStyle underline:NSUnderlineStyle) {
+        self.append(string, withAttributes: [NSFontAttributeName:font, NSUnderlineStyleAttributeName:underline.rawValue])
+    }
+
+    /// Appends an attributed string with underlined text of a given color and a dynamic font.
+    ///
+    /// :param: string A string you want to add.
     /// :param: color An instance of UIColor.
     /// :param: font An instance of UIFont.
     /// :param: underlineStyle A style for the underline.
@@ -79,6 +88,15 @@ public extension NSMutableAttributedString {
     }
 
     // MARK: - Strike Through
+
+    /// Appends an attributed string with a given color and a dynamic font with a strike through line.
+    ///
+    /// :param: string A string you want to add.
+    /// :param: font An instance of UIFont.
+    /// :param: underlineStyle A style for the strike through line.
+    func append(string:String, withfont font:UIFont, andStrikeThroughStyle strike:NSUnderlineStyle) {
+        self.append(string, withAttributes: [NSFontAttributeName:font, NSStrikethroughStyleAttributeName:strike.rawValue])
+    }
 
     /// Appends an attributed string with a given color and a dynamic font with a strike through line.
     ///
