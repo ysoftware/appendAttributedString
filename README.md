@@ -24,10 +24,4 @@ string.append("Quote by Russel T Davies", withColor: .purpleColor(), font: UIFon
 textView.attributedText = string
 ```
 
-<<<<<<< HEAD
-![result](https://github.com/ysoftware/appendAttributedStringWithEase/blob/master/example.png?raw=true)
-=======
 ![result](https://github.com/ysoftware/appendAttributedStringWithEase/blob/master/image.png?raw=true)
-
-Download the playground demo and well... play with it.
->>>>>>> origin/master
