@@ -25,5 +25,3 @@ textView.attributedText = string
 ```
 
 ![result](https://github.com/ysoftware/appendAttributedStringWithEase/blob/master/example.png?raw=true)
-
-Download the playground demo and well... play with it.
