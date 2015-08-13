@@ -1,6 +1,6 @@
 # appendAttributedStringWithEase 
 
-### Simple extension that adds methods to add text to a NSMutableAttributedString.
+#### Simple extension that adds methods to add text to a NSMutableAttributedString
 
 Supports dynamic fonts, colors, underlines and strike through.
 
@@ -28,6 +28,6 @@ textView.attributedText = string
 
 ![result](https://github.com/ysoftware/appendAttributedStringWithEase/blob/master/image.png?raw=true)
 
-### Installation
+#### Installation
 
 Just drag it into your project and don't forget the targets.
