@@ -6,7 +6,7 @@ Supports dynamic fonts, colors, underlines and strike through.
 
 All documented. Saves lots of time. And space.
 
-Here's an example.
+Here's an example:
 
 ```swift
 var string = NSMutableAttributedString()
