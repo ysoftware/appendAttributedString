@@ -4,7 +4,7 @@ Simple extension that adds methods to add text to a NSMutableAttributedString.
 
 Supports dynamic fonts, colors, underlines and strike through.
 
-All documented. Saves lots of time. And space.
+Saves lots of time. And space.
 
 Here's an example:
 
