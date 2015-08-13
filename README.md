@@ -1,12 +1,12 @@
-# appendAttributedStringWithEase.swift
+# appendAttributedStringWithEase 
 
-Simple extension that adds methods to append attributed strings.
+Simple extension that adds methods to add text to a NSMutableAttributedString.
 
 Supports dynamic fonts, colors, underlines and strike through.
 
 All documented. Saves lots of time. And space.
 
-Here's the example.
+Here's an example.
 
 ```swift
 var string = NSMutableAttributedString()
