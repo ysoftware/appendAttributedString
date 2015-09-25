@@ -12,9 +12,9 @@ public extension NSMutableAttributedString {
 
     /// Appends an attributed string with given attributes.
     ///
-    /// :param: string A string you want to add.
-    /// :param: attributes The attributes for the new attributed string.
-    func append(string:String, withAttributes attributes:[NSObject : AnyObject]?) {
+    /// - parameter string: A string you want to add.
+    /// - parameter attributes: The attributes for the new attributed string.
+    func append(string:String, withAttributes attributes:[String : AnyObject]?) {
         self.appendAttributedString(NSAttributedString(string: string, attributes: attributes))
     }
 
@@ -22,16 +22,16 @@ public extension NSMutableAttributedString {
 
     /// Appends an attributed string with a dynamic font.
     ///
-    /// :param: string A string you want to add.
-    /// :param: style A text style for dynamic font (ex. UIFontTextStyleBody).
+    /// - parameter string: A string you want to add.
+    /// - parameter style: A text style for dynamic font (ex. UIFontTextStyleBody).
     func append(string:String, withStyle style:String) {
         self.append(string, withFont: UIFont.preferredFontForTextStyle(style))
     }
 
     /// Appends an attributed string with a given font.
     ///
-    /// :param: string A string you want to add.
-    /// :param: font An instance of UIFont.
+    /// - parameter string: A string you want to add.
+    /// - parameter font: An instance of UIFont.
     func append(string:String, withFont font:UIFont) {
         self.append(string, withAttributes: [NSFontAttributeName:font])
     }
@@ -40,18 +40,18 @@ public extension NSMutableAttributedString {
 
     /// Appends an attributed string with a given color and a font.
     ///
-    /// :param: string A string you want to add.
-    /// :param: color An instance of UIColor.
-    /// :param: font An instance of UIFont.
+    /// - parameter string: A string you want to add.
+    /// - parameter color: An instance of UIColor.
+    /// - parameter font: An instance of UIFont.
     func append(string:String, withColor color:UIColor, andFont font:UIFont) {
         self.append(string, withAttributes: [NSFontAttributeName:font, NSForegroundColorAttributeName:color])
     }
 
     /// Appends an attributed string with a given color and a dynamic font.
     ///
-    /// :param: string A string you want to add.
-    /// :param: color An instance of UIColor.
-    /// :param: style A text style for dynamic font (ex. UIFontTextStyleBody).
+    /// - parameter string: A string you want to add.
+    /// - parameter color: An instance of UIColor.
+    /// - parameter style: A text style for dynamic font (ex. UIFontTextStyleBody).
     func append(string:String, withColor color:UIColor, andStyle style:String) {
         self.append(string, withColor: color, andFont: UIFont.preferredFontForTextStyle(style))
     }
@@ -60,29 +60,29 @@ public extension NSMutableAttributedString {
 
     /// Appends an attributed string with underlined text of a given color and a dynamic font.
     ///
-    /// :param: string A string you want to add.
-    /// :param: font An instance of UIFont.
-    /// :param: underlineStyle A style for the underline.
+    /// - parameter string: A string you want to add.
+    /// - parameter font: An instance of UIFont.
+    /// - parameter underlineStyle: A style for the underline.
     func append(string:String, withFont font:UIFont, andUnderlineStyle underline:NSUnderlineStyle) {
         self.append(string, withAttributes: [NSFontAttributeName:font, NSUnderlineStyleAttributeName:underline.rawValue])
     }
 
     /// Appends an attributed string with underlined text of a given color and a dynamic font.
     ///
-    /// :param: string A string you want to add.
-    /// :param: color An instance of UIColor.
-    /// :param: font An instance of UIFont.
-    /// :param: underlineStyle A style for the underline.
+    /// - parameter string: A string you want to add.
+    /// - parameter color: An instance of UIColor.
+    /// - parameter font: An instance of UIFont.
+    /// - parameter underlineStyle: A style for the underline.
     func append(string:String, withColor color:UIColor, font:UIFont, andUnderlineStyle underline:NSUnderlineStyle) {
         self.append(string, withAttributes: [NSFontAttributeName:font, NSForegroundColorAttributeName:color, NSUnderlineStyleAttributeName:underline.rawValue])
     }
 
     /// Appends an attributed string with underlined text of a given color and a dynamic font.
     ///
-    /// :param: string A string you want to add.
-    /// :param: color An instance of UIColor.
-    /// :param: style A text style for dynamic font (ex. UIFontTextStyleBody).
-    /// :param: underlineStyle A style for the underline.
+    /// - parameter string: A string you want to add.
+    /// - parameter color: An instance of UIColor.
+    /// - parameter style: A text style for dynamic font (ex. UIFontTextStyleBody).
+    /// - parameter underlineStyle: A style for the underline.
     func append(string:String, withColor color:UIColor, style:String, andUnderlineStyle underline:NSUnderlineStyle) {
         self.append(string, withColor: color, font: UIFont.preferredFontForTextStyle(style), andUnderlineStyle: underline)
     }
@@ -91,19 +91,19 @@ public extension NSMutableAttributedString {
 
     /// Appends an attributed string with a given color and a dynamic font with a strike through line.
     ///
-    /// :param: string A string you want to add.
-    /// :param: font An instance of UIFont.
-    /// :param: underlineStyle A style for the strike through line.
+    /// - parameter string: A string you want to add.
+    /// - parameter font: An instance of UIFont.
+    /// - parameter underlineStyle: A style for the strike through line.
     func append(string:String, withfont font:UIFont, andStrikeThroughStyle strike:NSUnderlineStyle) {
         self.append(string, withAttributes: [NSFontAttributeName:font, NSStrikethroughStyleAttributeName:strike.rawValue])
     }
 
     /// Appends an attributed string with a given color and a dynamic font with a strike through line.
     ///
-    /// :param: string A string you want to add.
-    /// :param: color An instance of UIColor.
-    /// :param: font An instance of UIFont.
-    /// :param: underlineStyle A style for the strike through line.
+    /// - parameter string: A string you want to add.
+    /// - parameter color: An instance of UIColor.
+    /// - parameter font: An instance of UIFont.
+    /// - parameter underlineStyle: A style for the strike through line.
     func append(string:String, withColor color:UIColor, font:UIFont, andStrikeThroughStyle strike:NSUnderlineStyle) {
         self.append(string, withAttributes: [NSFontAttributeName:font, NSForegroundColorAttributeName:color, NSStrikethroughStyleAttributeName:strike.rawValue])
     }
@@ -112,42 +112,42 @@ public extension NSMutableAttributedString {
 
     /// Appends an attributed string with a dynamic font of style Subheadline.
     ///
-    /// :param: string A string you want to add.
+    /// - parameter string: A string you want to add.
     func appendSubheadline(string:String) {
         self.append(string, withFont: UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline))
     }
 
     /// Appends an attributed string with a dynamic font of style Caption1.
     ///
-    /// :param: string A string you want to add.
+    /// - parameter string: A string you want to add.
     func appendCaption1(string:String) {
         self.append(string, withFont: UIFont.preferredFontForTextStyle(UIFontTextStyleCaption1))
     }
 
     /// Appends an attributed string with a dynamic font of style Caption2.
     ///
-    /// :param: string A string you want to add.
+    /// - parameter string: A string you want to add.
     func appendCaption2(string:String) {
         self.append(string, withFont: UIFont.preferredFontForTextStyle(UIFontTextStyleCaption2))
     }
 
     /// Appends an attributed string with a dynamic font of style Headline.
     ///
-    /// :param: string A string you want to add.
+    /// - parameter string: A string you want to add.
     func appendHeadline(string:String) {
         self.append(string, withFont: UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline))
     }
 
     /// Appends an attributed string with a dynamic font of style Footnote.
     ///
-    /// :param: string A string you want to add.
+    /// - parameter string: A string you want to add.
     func appendFootnote(string:String) {
         self.append(string, withFont: UIFont.preferredFontForTextStyle(UIFontTextStyleFootnote))
     }
 
     /// Appends an attributed string with a dynamic font of style Body.
     ///
-    /// :param: string A string you want to add.
+    /// - parameter string: A string you want to add.
     func appendBody(string:String) {
         self.append(string, withFont: UIFont.preferredFontForTextStyle(UIFontTextStyleBody))
     }
