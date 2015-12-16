@@ -94,7 +94,7 @@ public extension NSMutableAttributedString {
     /// - parameter string: A string you want to add.
     /// - parameter font: An instance of UIFont.
     /// - parameter underlineStyle: A style for the strike through line.
-    func append(string:String, withfont font:UIFont, andStrikeThroughStyle strike:NSUnderlineStyle) {
+    func append(string:String, withFont font:UIFont, andStrikeThroughStyle strike:NSUnderlineStyle) {
         self.append(string, withAttributes: [NSFontAttributeName:font, NSStrikethroughStyleAttributeName:strike.rawValue])
     }
 
@@ -106,6 +106,16 @@ public extension NSMutableAttributedString {
     /// - parameter underlineStyle: A style for the strike through line.
     func append(string:String, withColor color:UIColor, font:UIFont, andStrikeThroughStyle strike:NSUnderlineStyle) {
         self.append(string, withAttributes: [NSFontAttributeName:font, NSForegroundColorAttributeName:color, NSStrikethroughStyleAttributeName:strike.rawValue])
+    }
+
+    // MARK: - Superscript
+
+    /// Appends an attributed string with a superscript string with a given font of smaller size (1.6 times smaller).
+    ///
+    /// - parameter string: A string you want to add.
+    /// - parameter font: An instance of UIFont.
+    func appendSuperscript(string:String, withFont font:UIFont) {
+        self.append(string, withAttributes: [NSFontAttributeName:font.fontWithSize(font.pointSize/1.6), NSBaselineOffsetAttributeName:10])
     }
 
     // MARK: - Dynamic Fonts
