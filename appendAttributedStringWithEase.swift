@@ -110,12 +110,14 @@ public extension NSMutableAttributedString {
 
     // MARK: - Superscript
 
-    /// Appends an attributed string with a superscript string with a given font of smaller size (1.6 times smaller).
+    /// Appends an attributed string with a superscript string with a given font of smaller size.
     ///
     /// - parameter string: A string you want to add.
     /// - parameter font: An instance of UIFont.
-    func appendSuperscript(string:String, withFont font:UIFont) {
-        self.append(string, withAttributes: [NSFontAttributeName:font.fontWithSize(font.pointSize/1.6), NSBaselineOffsetAttributeName:10])
+    /// - parameter baselineOffset: Baseline offset of the string. Default is 7.
+    /// - parameter fontScale: Multiplier of font's size. Default is 0.6.
+    func appendSuperscript(string:String, withFont font:UIFont, fontScale scale:CGFloat = 0.6, baselineOffset offset:Float = 7) {
+        self.append(string, withAttributes: [NSFontAttributeName:font.fontWithSize(font.pointSize*scale), NSBaselineOffsetAttributeName:offset])
     }
 
     // MARK: - Dynamic Fonts
