@@ -114,9 +114,9 @@ public extension NSMutableAttributedString {
     ///
     /// - parameter string: A string you want to add.
     /// - parameter font: An instance of UIFont.
-    /// - parameter baselineOffset: Baseline offset of the string. Default is 7.
-    /// - parameter fontScale: Multiplier of font's size. Default is 0.6.
-    func appendSuperscript(string:String, withFont font:UIFont, fontScale scale:CGFloat = 0.6, baselineOffset offset:Float = 7) {
+    /// - parameter baselineOffset: Baseline offset of the string. Default is 10.
+    /// - parameter fontScale: Multiplier of font's size. Default is 0.7.
+    func appendSuperscript(string:String, withFont font:UIFont, fontScale scale:CGFloat = 0.7, baselineOffset offset:Float = 10) {
         self.append(string, withAttributes: [NSFontAttributeName:font.fontWithSize(font.pointSize*scale), NSBaselineOffsetAttributeName:offset])
     }
 
