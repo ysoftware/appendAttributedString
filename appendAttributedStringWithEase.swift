@@ -160,6 +160,7 @@ public extension NSMutableAttributedString {
     // WITH FALLBACKS
 
     /// Appends an attributed string with a dynamic font of style Title1 or uses the fallback option if not available.
+    /// For example: UIFontTextStyleHeadline
     ///
     /// - parameter string: A string you want to add.
     func appendTitle1(string:String, fallbackToStyle fallback:String) {
@@ -171,6 +172,7 @@ public extension NSMutableAttributedString {
     }
 
     /// Appends an attributed string with a dynamic font of style Title2 or uses the fallback option if not available.
+    /// For example: UIFontTextStyleHeadline
     ///
     /// - parameter string: A string you want to add.
     func appendTitle2(string:String, fallbackToStyle fallback:String) {
@@ -182,6 +184,7 @@ public extension NSMutableAttributedString {
     }
 
     /// Appends an attributed string with a dynamic font of style Title3 or uses the fallback option if not available.
+    /// For example: UIFontTextStyleHeadline
     ///
     /// - parameter string: A string you want to add.
     func appendTitle3(string:String, fallbackToStyle fallback:String) {
@@ -193,6 +196,7 @@ public extension NSMutableAttributedString {
     }
 
     /// Appends an attributed string with a dynamic font of style Callout.
+    /// For example: UIFontTextStyleFootnote
     ///
     /// - parameter string: A string you want to add.
     func appendCallout(string:String, fallbackToStyle fallback:String) {
