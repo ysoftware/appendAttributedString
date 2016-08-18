@@ -8,6 +8,7 @@
 
 import UIKit
 
+@available(iOS 7.0, *)
 public extension NSMutableAttributedString {
 
     /// Appends an attributed string with given attributes.
@@ -121,6 +122,88 @@ public extension NSMutableAttributedString {
     }
 
     // MARK: - Dynamic Fonts
+
+    // NEW IN iOS 9
+
+    /// Appends an attributed string with a dynamic font of style Title1.
+    ///
+    /// - parameter string: A string you want to add.
+    @available(iOS 9.0, *)
+    func appendTitle1(string:String) {
+        self.append(string, withFont: UIFont.preferredFontForTextStyle(UIFontTextStyleTitle1))
+    }
+
+    /// Appends an attributed string with a dynamic font of style Title2.
+    ///
+    /// - parameter string: A string you want to add.
+    @available(iOS 9.0, *)
+    func appendTitle2(string:String) {
+        self.append(string, withFont: UIFont.preferredFontForTextStyle(UIFontTextStyleTitle2))
+    }
+
+    /// Appends an attributed string with a dynamic font of style Title3.
+    ///
+    /// - parameter string: A string you want to add.
+    @available(iOS 9.0, *)
+    func appendTitle3(string:String) {
+        self.append(string, withFont: UIFont.preferredFontForTextStyle(UIFontTextStyleTitle3))
+    }
+
+    /// Appends an attributed string with a dynamic font of style Callout.
+    ///
+    /// - parameter string: A string you want to add.
+    @available(iOS 9.0, *)
+    func appendCallout(string:String) {
+        self.append(string, withFont: UIFont.preferredFontForTextStyle(UIFontTextStyleCallout))
+    }
+
+    // WITH FALLBACKS
+
+    /// Appends an attributed string with a dynamic font of style Title1 or uses the fallback option if not available.
+    ///
+    /// - parameter string: A string you want to add.
+    func appendTitle1(string:String, fallbackToStyle fallback:String) {
+        if #available(iOS 9.0, *) {
+            self.append(string, withFont: UIFont.preferredFontForTextStyle(UIFontTextStyleTitle1))
+        } else {
+            self.append(string, withFont: UIFont.preferredFontForTextStyle(fallback))
+        }
+    }
+
+    /// Appends an attributed string with a dynamic font of style Title2 or uses the fallback option if not available.
+    ///
+    /// - parameter string: A string you want to add.
+    func appendTitle2(string:String, fallbackToStyle fallback:String) {
+        if #available(iOS 9.0, *) {
+            self.append(string, withFont: UIFont.preferredFontForTextStyle(UIFontTextStyleTitle2))
+        } else {
+            self.append(string, withFont: UIFont.preferredFontForTextStyle(fallback))
+        }
+    }
+
+    /// Appends an attributed string with a dynamic font of style Title3 or uses the fallback option if not available.
+    ///
+    /// - parameter string: A string you want to add.
+    func appendTitle3(string:String, fallbackToStyle fallback:String) {
+        if #available(iOS 9.0, *) {
+            self.append(string, withFont: UIFont.preferredFontForTextStyle(UIFontTextStyleTitle3))
+        } else {
+            self.append(string, withFont: UIFont.preferredFontForTextStyle(fallback))
+        }
+    }
+
+    /// Appends an attributed string with a dynamic font of style Callout.
+    ///
+    /// - parameter string: A string you want to add.
+    func appendCallout(string:String, fallbackToStyle fallback:String) {
+        if #available(iOS 9.0, *) {
+            self.append(string, withFont: UIFont.preferredFontForTextStyle(UIFontTextStyleCallout))
+        } else {
+            self.append(string, withFont: UIFont.preferredFontForTextStyle(fallback))
+        }
+    }
+
+    // OLDER ONES
 
     /// Appends an attributed string with a dynamic font of style Subheadline.
     ///
