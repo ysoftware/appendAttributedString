@@ -44,6 +44,15 @@ public extension NSMutableAttributedString {
     /// - parameter string: A string you want to add.
     /// - parameter color: An instance of UIColor.
     /// - parameter font: An instance of UIFont.
+    func append(_ string:String, withColor color:UIColor) {
+        self.append(string, withAttributes: [NSForegroundColorAttributeName:color])
+    }
+
+    /// Appends an attributed string with a given color and a font.
+    ///
+    /// - parameter string: A string you want to add.
+    /// - parameter color: An instance of UIColor.
+    /// - parameter font: An instance of UIFont.
     func append(_ string:String, withColor color:UIColor, andFont font:UIFont) {
         self.append(string, withAttributes: [NSFontAttributeName:font, NSForegroundColorAttributeName:color])
     }
