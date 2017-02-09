@@ -1,4 +1,4 @@
-# append(attributedString:_ withEase:_)
+# append(attributedString, with: ease)
 
 #### Extension that adds methods for appending text to a NSMutableAttributedString
 
