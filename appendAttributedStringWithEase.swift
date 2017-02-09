@@ -9,119 +9,148 @@
 import UIKit
 
 @available(iOS 7.0, *)
-public extension NSMutableAttributedString {
+extension NSMutableAttributedString {
 
-    /// Appends an attributed string with given attributes.
-    ///
-    /// - parameter string: A string you want to add.
-    /// - parameter attributes: The attributes for the new attributed string.
-    /// - returns: This instance of NSMutableAttributedString for chaining. Ex. `string.appendBody("Hello, ").appendHeadline("user")`
+    /**
+     Adds a string with given attributes.
+
+     - Parameters:
+     - string: A string you want to add.
+     - attributes: The attributes for the new attributed string.
+     - Returns: This instance of NSMutableAttributedString for chaining.
+     */
     @discardableResult
-    func append(_ string:String, withAttributes attributes:[String : Any]?) -> NSMutableAttributedString {
+    open func append(_ string:String,
+                     withAttributes attributes:[String : Any]? = nil) -> NSMutableAttributedString {
         append(NSAttributedString(string: string, attributes: attributes))
         return self
     }
 
     // MARK: - Fonts
 
-    /// Appends an attributed string with a dynamic font.
-    ///
-    /// - parameter string: A string you want to add.
-    /// - parameter style: A text style for dynamic font (ex. UIFontTextStyleBody).
-    /// - returns: This instance of NSMutableAttributedString for chaining. Ex. `string.appendBody("Hello, ").appendHeadline("user")`
+    /**
+     Adds a string with a dynamic font.
+
+     - Parameters:
+     - string: A string you want to add.
+     - style: A text style for dynamic font (ex. UIFontTextStyleBody).
+     - Returns: This instance of NSMutableAttributedString for chaining.
+     */
     @discardableResult
-    func append(_ string:String, withStyle style:String) -> NSMutableAttributedString {
+    open func append(_ string:String, withStyle style:String) -> NSMutableAttributedString {
         return append(string, withFont: UIFont.preferredFont(forTextStyle: UIFontTextStyle(rawValue: style)))
     }
 
-    /// Appends an attributed string with a given font.
-    ///
-    /// - parameter string: A string you want to add.
-    /// - parameter font: An instance of UIFont.
-    /// - returns: This instance of NSMutableAttributedString for chaining. Ex. `string.appendBody("Hello, ").appendHeadline("user")`
+    /**
+     Adds a string with a given font.
+
+     - Parameters:
+     - string: A string you want to add.
+     - font: An instance of UIFont.
+     - Returns: This instance of NSMutableAttributedString for chaining.
+     */
     @discardableResult
-    func append(_ string:String, withFont font:UIFont)  -> NSMutableAttributedString {
+    open func append(_ string:String, withFont font:UIFont)  -> NSMutableAttributedString {
         return append(string, withAttributes: [NSFontAttributeName:font])
     }
 
     // MARK: - Colors
 
-    /// Appends an attributed string with a given color and a font.
-    ///
-    /// - parameter string: A string you want to add.
-    /// - parameter color: An instance of UIColor.
-    /// - returns: This instance of NSMutableAttributedString for chaining. Ex. `string.appendBody("Hello, ").appendHeadline("user")`
+    /**
+     Adds a string with a given color and a font.
+
+     - Parameters:
+     - string: A string you want to add.
+     - color: An instance of UIColor.
+     - Returns: This instance of NSMutableAttributedString for chaining.
+     */
     @discardableResult
-    func append(_ string:String, withColor color:UIColor) -> NSMutableAttributedString {
+    open func append(_ string:String, withColor color:UIColor) -> NSMutableAttributedString {
         return append(string, withAttributes: [NSForegroundColorAttributeName:color])
     }
 
-    /// Appends an attributed string with a given color and a font.
-    ///
-    /// - parameter string: A string you want to add.
-    /// - parameter color: An instance of UIColor.
-    /// - parameter font: An instance of UIFont.
-    /// - returns: This instance of NSMutableAttributedString for chaining. Ex. `string.appendBody("Hello, ").appendHeadline("user")`
+    /**
+     Adds a string with a given color and a font.
+
+     - Parameters:
+     - string: A string you want to add.
+     - color: An instance of UIColor.
+     - font: An instance of UIFont.
+     - Returns: This instance of NSMutableAttributedString for chaining.
+     */
     @discardableResult
-    func append(_ string:String, withColor color:UIColor, andFont font:UIFont) -> NSMutableAttributedString {
+    open func append(_ string:String,
+                     withColor color:UIColor, andFont font:UIFont) -> NSMutableAttributedString {
         return append(string, withAttributes: [NSFontAttributeName:font,
                                                NSForegroundColorAttributeName:color])
     }
 
-    /// Appends an attributed string with a given color and a dynamic font.
-    ///
-    /// - parameter string: A string you want to add.
-    /// - parameter color: An instance of UIColor.
-    /// - parameter style: A text style for dynamic font (ex. UIFontTextStyleBody).
-    /// - returns: This instance of NSMutableAttributedString for chaining. Ex. `string.appendBody("Hello, ").appendHeadline("user")`
+    /**
+     Adds a string with a given color and a dynamic font.
+
+     - Parameters:
+     - string: A string you want to add.
+     - color: An instance of UIColor.
+     - style: A text style for dynamic font (ex. UIFontTextStyleBody).
+     - Returns: This instance of NSMutableAttributedString for chaining.
+     */
     @discardableResult
-    func append(_ string:String, withColor color:UIColor,
-                andStyle style:String) -> NSMutableAttributedString {
+    open func append(_ string:String, withColor color:UIColor,
+                     andStyle style:String) -> NSMutableAttributedString {
         return append(string, withColor: color,
                       andFont: UIFont.preferredFont(forTextStyle: UIFontTextStyle(rawValue: style)))
     }
 
     // MARK: - Underline
 
-    /// Appends an attributed string with underlined text of a given color and a dynamic font.
-    ///
-    /// - parameter string: A string you want to add.
-    /// - parameter font: An instance of UIFont.
-    /// - parameter underlineStyle: A style for the underline.
-    /// - returns: This instance of NSMutableAttributedString for chaining. Ex. `string.appendBody("Hello, ").appendHeadline("user")`
+    /**
+     Adds a string with underlined text of a given color and a dynamic font.
+
+     - Parameters:
+     - string: A string you want to add.
+     - font: An instance of UIFont.
+     - underlineStyle: A style for the underline.
+     - Returns: This instance of NSMutableAttributedString for chaining.
+     */
     @discardableResult
-    func append(_ string:String, withFont font:UIFont,
-                andUnderlineStyle underline:NSUnderlineStyle) -> NSMutableAttributedString {
+    open func append(_ string:String, withFont font:UIFont,
+                     andUnderlineStyle underline:NSUnderlineStyle) -> NSMutableAttributedString {
         return append(string,
                       withAttributes: [NSFontAttributeName:font,
                                        NSUnderlineStyleAttributeName:underline.rawValue as AnyObject])
     }
 
-    /// Appends an attributed string with underlined text of a given color and a dynamic font.
-    ///
-    /// - parameter string: A string you want to add.
-    /// - parameter color: An instance of UIColor.
-    /// - parameter font: An instance of UIFont.
-    /// - parameter underlineStyle: A style for the underline.
-    /// - returns: This instance of NSMutableAttributedString for chaining. Ex. `string.appendBody("Hello, ").appendHeadline("user")`
+    /**
+     Adds a string with underlined text of a given color and a dynamic font.
+
+     - Parameters:
+     - string: A string you want to add.
+     - color: An instance of UIColor.
+     - font: An instance of UIFont.
+     - underlineStyle: A style for the underline.
+     - Returns: This instance of NSMutableAttributedString for chaining.
+     */
     @discardableResult
-    func append(_ string:String, withColor color:UIColor, font:UIFont,
-                andUnderlineStyle underline:NSUnderlineStyle) -> NSMutableAttributedString {
+    open func append(_ string:String, withColor color:UIColor, font:UIFont,
+                     andUnderlineStyle underline:NSUnderlineStyle) -> NSMutableAttributedString {
         return append(string, withAttributes: [NSFontAttributeName:font,
                                                NSForegroundColorAttributeName:color,
                                                NSUnderlineStyleAttributeName:underline.rawValue])
     }
 
-    /// Appends an attributed string with underlined text of a given color and a dynamic font.
-    ///
-    /// - parameter string: A string you want to add.
-    /// - parameter color: An instance of UIColor.
-    /// - parameter style: A text style for dynamic font (ex. UIFontTextStyleBody).
-    /// - parameter underlineStyle: A style for the underline.
-    /// - returns: This instance of NSMutableAttributedString for chaining. Ex. `string.appendBody("Hello, ").appendHeadline("user")`
+    /**
+     Adds a string with underlined text of a given color and a dynamic font.
+
+     - Parameters:
+     - string: A string you want to add.
+     - color: An instance of UIColor.
+     - style: A text style for dynamic font (ex. UIFontTextStyleBody).
+     - underlineStyle: A style for the underline.
+     - returns: This instance of NSMutableAttributedString for chaining.
+     */
     @discardableResult
-    func append(_ string:String, withColor color:UIColor, style:String,
-                andUnderlineStyle underline:NSUnderlineStyle) -> NSMutableAttributedString {
+    open func append(_ string:String, withColor color:UIColor, style:String,
+                     andUnderlineStyle underline:NSUnderlineStyle) -> NSMutableAttributedString {
         return append(string, withColor: color,
                       font: UIFont.preferredFont(forTextStyle: UIFontTextStyle(rawValue: style)),
                       andUnderlineStyle: underline)
@@ -129,29 +158,35 @@ public extension NSMutableAttributedString {
 
     // MARK: - Strike Through
 
-    /// Appends an attributed string with a given color and a dynamic font with a strike through line.
-    ///
-    /// - parameter string: A string you want to add.
-    /// - parameter font: An instance of UIFont.
-    /// - parameter underlineStyle: A style for the strike through line.
-    /// - returns: This instance of NSMutableAttributedString for chaining. Ex. `string.appendBody("Hello, ").appendHeadline("user")`
+    /**
+     Adds a string with a given color and a dynamic font with a strike through line.
+
+     - Parameters:
+     - string: A string you want to add.
+     - font: An instance of UIFont.
+     - underlineStyle: A style for the strike through line.
+     - Returns: This instance of NSMutableAttributedString for chaining.
+     */
     @discardableResult
-    func append(_ string:String, withFont font:UIFont,
-                andStrikeThroughStyle strike:NSUnderlineStyle) -> NSMutableAttributedString {
+    open func append(_ string:String, withFont font:UIFont,
+                     andStrikeThroughStyle strike:NSUnderlineStyle) -> NSMutableAttributedString {
         return append(string, withAttributes: [NSFontAttributeName:font,
                                                NSStrikethroughStyleAttributeName:strike.rawValue])
     }
 
-    /// Appends an attributed string with a given color and a dynamic font with a strike through line.
-    ///
-    /// - parameter string: A string you want to add.
-    /// - parameter color: An instance of UIColor.
-    /// - parameter font: An instance of UIFont.
-    /// - parameter underlineStyle: A style for the strike through line.
-    /// - returns: This instance of NSMutableAttributedString for chaining. Ex. `string.appendBody("Hello, ").appendHeadline("user")`
+    /**
+     Adds a string with a given color and a dynamic font with a strike through line.
+
+     - Parameters:
+     - string: A string you want to add.
+     - color: An instance of UIColor.
+     - font: An instance of UIFont.
+     - underlineStyle: A style for the strike through line.
+     - Returns: This instance of NSMutableAttributedString for chaining.
+     */
     @discardableResult
-    func append(_ string:String, withColor color:UIColor, font:UIFont,
-                andStrikeThroughStyle strike:NSUnderlineStyle) -> NSMutableAttributedString {
+    open func append(_ string:String, withColor color:UIColor, font:UIFont,
+                     andStrikeThroughStyle strike:NSUnderlineStyle) -> NSMutableAttributedString {
         return append(string, withAttributes: [NSFontAttributeName:font,
                                                NSForegroundColorAttributeName:color,
                                                NSStrikethroughStyleAttributeName:strike.rawValue])
@@ -159,70 +194,82 @@ public extension NSMutableAttributedString {
 
     // MARK: - Superscript
 
-    /// Appends an attributed string with a superscript string with a given font of smaller size.
-    ///
-    /// - parameter string: A string you want to add.
-    /// - parameter font: An instance of UIFont.
-    /// - parameter baselineOffset: Baseline offset of the string. Default is 10.
-    /// - parameter fontScale: Multiplier of font's size. Default is 0.7.
-    /// - returns: This instance of NSMutableAttributedString for chaining. Ex. `string.appendBody("Hello, ").appendHeadline("user")`
+    /**
+     Adds a string with a superscript string with a given font of smaller size.
+
+     - Parameters:
+     - string: A string you want to add.
+     - font: An instance of UIFont.
+     - baselineOffset: Baseline offset of the string. Default is 10.
+     - fontScale: Multiplier of font's size. Default is 0.7.
+     - Returns: This instance of NSMutableAttributedString for chaining.
+     */
     @discardableResult
-    func appendSuperscript(_ string:String, withFont font:UIFont,
-                           fontScale scale:CGFloat = 0.7,
-                           baselineOffset offset:Float = 10) -> NSMutableAttributedString {
+    open func appendSuperscript(_ string:String, withFont font:UIFont,
+                                fontScale scale:CGFloat = 0.7,
+                                baselineOffset offset:Float = 10) -> NSMutableAttributedString {
         return append(string, withAttributes: [NSFontAttributeName:font.withSize(font.pointSize*scale),
                                                NSBaselineOffsetAttributeName:offset])
     }
 
-    // MARK: - Dynamic Fonts
+    // MARK: - Dynamic Fonts (iOS 9+)
 
-    // NEW IN iOS 9
+    /**
+     Adds a string with a dynamic font of style Title1.
 
-    /// Appends an attributed string with a dynamic font of style Title1.
-    ///
-    /// - parameter string: A string you want to add.
-    /// - returns: This instance of NSMutableAttributedString for chaining. Ex. `string.appendBody("Hello, ").appendHeadline("user")`
+     - Parameter string: A string you want to add.
+     - Returns: This instance of NSMutableAttributedString for chaining.
+     */
     @available(iOS 9.0, *) @discardableResult
-    func appendTitle1(_ string:String) -> NSMutableAttributedString {
+    open func appendTitle1(_ string:String) -> NSMutableAttributedString {
         return append(string, withFont: UIFont.preferredFont(forTextStyle: .title1))
     }
 
-    /// Appends an attributed string with a dynamic font of style Title2.
-    ///
-    /// - parameter string: A string you want to add.
-    /// - returns: This instance of NSMutableAttributedString for chaining. Ex. `string.appendBody("Hello, ").appendHeadline("user")`
+    /**
+     Adds a string with a dynamic font of style Title2.
+
+     - Parameter string: A string you want to add.
+     - Returns: This instance of NSMutableAttributedString for chaining.
+     */
     @available(iOS 9.0, *) @discardableResult
-    func appendTitle2(_ string:String) -> NSMutableAttributedString {
+    open func appendTitle2(_ string:String) -> NSMutableAttributedString {
         return append(string, withFont: UIFont.preferredFont(forTextStyle: .title2))
     }
 
-    /// Appends an attributed string with a dynamic font of style Title3.
-    ///
-    /// - parameter string: A string you want to add.
-    /// - returns: This instance of NSMutableAttributedString for chaining. Ex. `string.appendBody("Hello, ").appendHeadline("user")`
+    /**
+     Adds a string with a dynamic font of style Title3.
+
+     - Parameter string: A string you want to add.
+     - Returns: This instance of NSMutableAttributedString for chaining.
+     */
     @available(iOS 9.0, *) @discardableResult
-    func appendTitle3(_ string:String) -> NSMutableAttributedString {
+    open func appendTitle3(_ string:String) -> NSMutableAttributedString {
         return append(string, withFont: UIFont.preferredFont(forTextStyle: .title3))
     }
 
-    /// Appends an attributed string with a dynamic font of style Callout.
-    ///
-    /// - parameter string: A string you want to add.
-    /// - returns: This instance of NSMutableAttributedString for chaining. Ex. `string.appendBody("Hello, ").appendHeadline("user")`
+    /**
+     Adds a string with a dynamic font of style Callout.
+
+     - Parameter string: A string you want to add.
+     - Returns: This instance of NSMutableAttributedString for chaining.
+     */
     @available(iOS 9.0, *) @discardableResult
-    func appendCallout(_ string:String) -> NSMutableAttributedString {
+    open func appendCallout(_ string:String) -> NSMutableAttributedString {
         return append(string, withFont: UIFont.preferredFont(forTextStyle: .callout))
     }
 
-    // WITH FALLBACKS
+    // MARK: - Dynamic Fonts (iOS 9+) with fallback
 
-    /// Appends an attributed string with a dynamic font of style Title1 or uses the fallback option if not available.
-    /// For example: UIFontTextStyleHeadline
-    ///
-    /// - parameter string: A string you want to add.
-    /// - returns: This instance of NSMutableAttributedString for chaining. Ex. `string.appendBody("Hello, ").appendHeadline("user")`
+    /**
+     Adds a string with a dynamic font of style Title1 or uses the fallback option if not available.
+
+     For example: UIFontTextStyleHeadline
+
+     - Parameter string: A string you want to add.
+     - Returns: This instance of NSMutableAttributedString for chaining.
+     */
     @discardableResult
-    func appendTitle1(_ string:String, fallbackToStyle fallback:String) -> NSMutableAttributedString {
+    open func appendTitle1(_ string:String, fallbackToStyle fallback:String) -> NSMutableAttributedString {
         if #available(iOS 9.0, *) {
             return append(string, withFont: UIFont.preferredFont(forTextStyle: .title1))
         } else {
@@ -231,13 +278,16 @@ public extension NSMutableAttributedString {
         }
     }
 
-    /// Appends an attributed string with a dynamic font of style Title2 or uses the fallback option if not available.
-    /// For example: UIFontTextStyleHeadline
-    ///
-    /// - parameter string: A string you want to add.
-    /// - returns: This instance of NSMutableAttributedString for chaining. Ex. `string.appendBody("Hello, ").appendHeadline("user")`
+    /**
+     Adds a string with a dynamic font of style Title2 or uses the fallback option if not available.
+
+     For example: UIFontTextStyleHeadline
+
+     - Parameter string: A string you want to add.
+     - Returns: This instance of NSMutableAttributedString for chaining.
+     */
     @discardableResult
-    func appendTitle2(_ string:String, fallbackToStyle fallback:String) -> NSMutableAttributedString {
+    open func appendTitle2(_ string:String, fallbackToStyle fallback:String) -> NSMutableAttributedString {
         if #available(iOS 9.0, *) {
             return append(string, withFont: UIFont.preferredFont(forTextStyle: .title2))
         } else {
@@ -246,13 +296,16 @@ public extension NSMutableAttributedString {
         }
     }
 
-    /// Appends an attributed string with a dynamic font of style Title3 or uses the fallback option if not available.
-    /// For example: UIFontTextStyleHeadline
-    ///
-    /// - parameter string: A string you want to add.
-    /// - returns: This instance of NSMutableAttributedString for chaining. Ex. `string.appendBody("Hello, ").appendHeadline("user")`
+    /**
+     Adds a string with a dynamic font of style Title3 or uses the fallback option if not available.
+
+     For example: UIFontTextStyleHeadline
+
+     - Parameter string: A string you want to add.
+     - Returns: This instance of NSMutableAttributedString for chaining.
+     */
     @discardableResult
-    func appendTitle3(_ string:String, fallbackToStyle fallback:String) -> NSMutableAttributedString {
+    open func appendTitle3(_ string:String, fallbackToStyle fallback:String) -> NSMutableAttributedString {
         if #available(iOS 9.0, *) {
             return append(string, withFont: UIFont.preferredFont(forTextStyle: .title3))
         } else {
@@ -261,13 +314,16 @@ public extension NSMutableAttributedString {
         }
     }
 
-    /// Appends an attributed string with a dynamic font of style Callout.
-    /// For example: UIFontTextStyleFootnote
-    ///
-    /// - parameter string: A string you want to add.
-    /// - returns: This instance of NSMutableAttributedString for chaining. Ex. `string.appendBody("Hello, ").appendHeadline("user")`
+    /**
+     Adds a string with a dynamic font of style Callout.
+
+     For example: UIFontTextStyleFootnote
+
+     - Parameter string: A string you want to add.
+     - Returns: This instance of NSMutableAttributedString for chaining.
+     */
     @discardableResult
-    func appendCallout(_ string:String, fallbackToStyle fallback:String) -> NSMutableAttributedString {
+    open func appendCallout(_ string:String, fallbackToStyle fallback:String) -> NSMutableAttributedString {
         if #available(iOS 9.0, *) {
             return append(string, withFont: UIFont.preferredFont(forTextStyle: .callout))
         } else {
@@ -276,60 +332,72 @@ public extension NSMutableAttributedString {
         }
     }
 
-    // OLDER ONES
+    // MARK: - Dynamic Fonts (iOS 7+)
 
-    /// Appends an attributed string with a dynamic font of style Subheadline.
-    ///
-    /// - parameter string: A string you want to add.
-    /// - returns: This instance of NSMutableAttributedString for chaining. Ex. `string.appendBody("Hello, ").appendHeadline("user")`
+    /**
+     Adds a string with a dynamic font of style Subheadline.
+
+     - Parameter string: A string you want to add.
+     - Returns: This instance of NSMutableAttributedString for chaining.
+     */
     @discardableResult
-    func appendSubheadline(_ string:String) -> NSMutableAttributedString {
+    open func appendSubheadline(_ string:String) -> NSMutableAttributedString {
         return append(string, withFont: UIFont.preferredFont(forTextStyle: .subheadline))
     }
 
-    /// Appends an attributed string with a dynamic font of style Caption1.
-    ///
-    /// - parameter string: A string you want to add.
-    /// - returns: This instance of NSMutableAttributedString for chaining. Ex. `string.appendBody("Hello, ").appendHeadline("user")`
+    /**
+     Adds a string with a dynamic font of style Caption1.
+
+     - Parameter string: A string you want to add.
+     - Returns: This instance of NSMutableAttributedString for chaining.
+     */
     @discardableResult
-    func appendCaption1(_ string:String) -> NSMutableAttributedString {
+    open func appendCaption1(_ string:String) -> NSMutableAttributedString {
         return append(string, withFont: UIFont.preferredFont(forTextStyle: .caption1))
     }
 
-    /// Appends an attributed string with a dynamic font of style Caption2.
-    ///
-    /// - parameter string: A string you want to add.
-    /// - returns: This instance of NSMutableAttributedString for chaining. Ex. `string.appendBody("Hello, ").appendHeadline("user")`
+    /**
+     Adds a string with a dynamic font of style Caption2.
+
+     - Parameter string: A string you want to add.
+     - Returns: This instance of NSMutableAttributedString for chaining.
+     */
     @discardableResult
-    func appendCaption2(_ string:String) -> NSMutableAttributedString {
+    open func appendCaption2(_ string:String) -> NSMutableAttributedString {
         return append(string, withFont: UIFont.preferredFont(forTextStyle: .caption2))
     }
 
-    /// Appends an attributed string with a dynamic font of style Headline.
-    ///
-    /// - parameter string: A string you want to add.
-    /// - returns: This instance of NSMutableAttributedString for chaining. Ex. `string.appendBody("Hello, ").appendHeadline("user")`
+    /**
+     Adds a string with a dynamic font of style Headline.
+
+     - Parameter string: A string you want to add.
+     - Returns: This instance of NSMutableAttributedString for chaining.
+     */
     @discardableResult
-    func appendHeadline(_ string:String) -> NSMutableAttributedString {
+    open func appendHeadline(_ string:String) -> NSMutableAttributedString {
         return append(string, withFont: UIFont.preferredFont(forTextStyle: .headline))
     }
 
-    /// Appends an attributed string with a dynamic font of style Footnote.
-    ///
-    /// - parameter string: A string you want to add.
-    /// - returns: This instance of NSMutableAttributedString for chaining. Ex. `string.appendBody("Hello, ").appendHeadline("user")`
+    /**
+     Adds a string with a dynamic font of style Footnote.
+
+     - Parameter string: A string you want to add.
+     - Returns: This instance of NSMutableAttributedString for chaining.
+     */
     @discardableResult
-    func appendFootnote(_ string:String) -> NSMutableAttributedString {
+    open func appendFootnote(_ string:String) -> NSMutableAttributedString {
         return append(string, withFont: UIFont.preferredFont(forTextStyle: .footnote))
     }
 
-    /// Appends an attributed string with a dynamic font of style Body.
-    ///
-    /// - parameter string: A string you want to add.
-    /// - returns: This instance of NSMutableAttributedString for chaining. Ex. `string.appendBody("Hello, ").appendHeadline("user")`
+    /**
+     Adds a string with a dynamic font of style Body.
+
+     - Parameter string: A string you want to add.
+     - Returns: This instance of NSMutableAttributedString for chaining.
+     */
     @discardableResult
-    func appendBody(_ string:String) -> NSMutableAttributedString {
+    open func appendBody(_ string:String) -> NSMutableAttributedString {
         return append(string, withFont: UIFont.preferredFont(forTextStyle: .body))
     }
-    
+
 }
