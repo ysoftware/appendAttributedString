@@ -10,12 +10,12 @@ Here's an example:
 ```swift
 var string = NSMutableAttributedString()
 
-//dynamic fonts
+// dynamic fonts
 string.appendSubheadline("You want weapons?\n")
     .appendBody("We're in a library.\n")
     .appendHeadline("BOOKS!\n")
 
-//color, underline, strike-through
+// color, underline, strike-through
 string.append("Books are the best weapon in the world.\n", withColor: .brownColor(), andStyle: UIFontTextStyleHeadline)
     .append("This room's the greatest arsenal we could have!\n", withColor: .orangeColor(), andFont: UIFont(name: "Georgia", size: 20)!)
     .append("Arm yourself\n\n", withColor: .grayColor(), style: UIFontTextStyleHeadline, andUnderlineStyle: .StyleThick)
