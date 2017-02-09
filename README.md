@@ -29,4 +29,4 @@ textView.attributedText = string
 
 #### Installation
 
-Just drag it into your project and don't forget the targets.
+Drag and drop into your project and set needed targets.
