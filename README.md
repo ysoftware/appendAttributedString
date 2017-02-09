@@ -10,7 +10,7 @@ Here's an example:
 ```swift
 var string = NSMutableAttributedString()
 
-//dynamic fonts (iOS 7+)
+//dynamic fonts
 string.appendSubheadline("You want weapons?\n")
     .appendBody("We're in a library.\n")
     .appendHeadline("BOOKS!\n")
