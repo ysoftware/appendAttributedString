@@ -37,8 +37,8 @@ extension NSMutableAttributedString {
      - Returns: This instance of NSMutableAttributedString for chaining.
      */
     @discardableResult
-    open func append(_ string:String, withStyle style:String) -> NSMutableAttributedString {
-        return append(string, withFont: UIFont.preferredFont(forTextStyle: UIFontTextStyle(rawValue: style)))
+    open func append(_ string:String, withStyle style:UIFontTextStyle) -> NSMutableAttributedString {
+        return append(string, withFont: UIFont.preferredFont(forTextStyle: style))
     }
 
     /**
@@ -96,9 +96,9 @@ extension NSMutableAttributedString {
      */
     @discardableResult
     open func append(_ string:String, withColor color:UIColor,
-                     andStyle style:String) -> NSMutableAttributedString {
+                     andStyle style:UIFontTextStyle) -> NSMutableAttributedString {
         return append(string, withColor: color,
-                      andFont: UIFont.preferredFont(forTextStyle: UIFontTextStyle(rawValue: style)))
+                      andFont: UIFont.preferredFont(forTextStyle: style))
     }
 
     // MARK: - Underline
@@ -149,10 +149,10 @@ extension NSMutableAttributedString {
      - returns: This instance of NSMutableAttributedString for chaining.
      */
     @discardableResult
-    open func append(_ string:String, withColor color:UIColor, style:String,
+    open func append(_ string:String, withColor color:UIColor, style:UIFontTextStyle,
                      andUnderlineStyle underline:NSUnderlineStyle) -> NSMutableAttributedString {
         return append(string, withColor: color,
-                      font: UIFont.preferredFont(forTextStyle: UIFontTextStyle(rawValue: style)),
+                      font: UIFont.preferredFont(forTextStyle: style),
                       andUnderlineStyle: underline)
     }
 
@@ -269,12 +269,12 @@ extension NSMutableAttributedString {
      - Returns: This instance of NSMutableAttributedString for chaining.
      */
     @discardableResult
-    open func appendTitle1(_ string:String, fallbackToStyle fallback:String) -> NSMutableAttributedString {
+    open func appendTitle1(_ string:String, fallbackToStyle fallback:UIFontTextStyle) -> NSMutableAttributedString {
         if #available(iOS 9.0, *) {
             return append(string, withFont: UIFont.preferredFont(forTextStyle: .title1))
         } else {
             return append(string,
-                          withFont: UIFont.preferredFont(forTextStyle: UIFontTextStyle(rawValue: fallback)))
+                          withFont: UIFont.preferredFont(forTextStyle: fallback))
         }
     }
 
@@ -287,12 +287,12 @@ extension NSMutableAttributedString {
      - Returns: This instance of NSMutableAttributedString for chaining.
      */
     @discardableResult
-    open func appendTitle2(_ string:String, fallbackToStyle fallback:String) -> NSMutableAttributedString {
+    open func appendTitle2(_ string:String, fallbackToStyle fallback:UIFontTextStyle) -> NSMutableAttributedString {
         if #available(iOS 9.0, *) {
             return append(string, withFont: UIFont.preferredFont(forTextStyle: .title2))
         } else {
             return append(string,
-                          withFont: UIFont.preferredFont(forTextStyle: UIFontTextStyle(rawValue: fallback)))
+                          withFont: UIFont.preferredFont(forTextStyle: fallback))
         }
     }
 
@@ -305,12 +305,12 @@ extension NSMutableAttributedString {
      - Returns: This instance of NSMutableAttributedString for chaining.
      */
     @discardableResult
-    open func appendTitle3(_ string:String, fallbackToStyle fallback:String) -> NSMutableAttributedString {
+    open func appendTitle3(_ string:String, fallbackToStyle fallback:UIFontTextStyle) -> NSMutableAttributedString {
         if #available(iOS 9.0, *) {
             return append(string, withFont: UIFont.preferredFont(forTextStyle: .title3))
         } else {
             return append(string,
-                          withFont: UIFont.preferredFont(forTextStyle: UIFontTextStyle(rawValue: fallback)))
+                          withFont: UIFont.preferredFont(forTextStyle: fallback))
         }
     }
 
@@ -323,12 +323,12 @@ extension NSMutableAttributedString {
      - Returns: This instance of NSMutableAttributedString for chaining.
      */
     @discardableResult
-    open func appendCallout(_ string:String, fallbackToStyle fallback:String) -> NSMutableAttributedString {
+    open func appendCallout(_ string:String, fallbackToStyle fallback:UIFontTextStyle) -> NSMutableAttributedString {
         if #available(iOS 9.0, *) {
             return append(string, withFont: UIFont.preferredFont(forTextStyle: .callout))
         } else {
             return append(string,
-                          withFont: UIFont.preferredFont(forTextStyle: UIFontTextStyle(rawValue: fallback)))
+                          withFont: UIFont.preferredFont(forTextStyle: fallback))
         }
     }
 
