@@ -17,11 +17,11 @@ string.appendSubheadline("You want weapons?\n")
     .appendHeadline("BOOKS!\n")
 
 // color, underline, strike-through
-string.append("Books are the best weapon in the world.\n", withColor: .brown, andStyle: .headline)
-    .append("This room's the greatest arsenal we could have!\n", withColor: .orange, andFont: UIFont(name: "Georgia", size: 20)!)
-    .append("Arm yourself\n\n", withColor: .gray, style: .headline, andUnderlineStyle: .styleThick)
+string.append("Books are the best weapon in the world.\n", color: .brown, style: .headline)
+    .append("This room's the greatest arsenal we could have!\n", color: .orange, font: UIFont(name: "Georgia", size: 20)!)
+    .append("Arm yourself\n\n", color: .gray, style: .headline, underlineStyle: .styleThick)
     .appendHeadline("© The Doctor\n")
-    .append("Quote by Russel T Davies", withColor: .purple, font: UIFont(name: "Georgia", size: 15)!, andStrikeThroughStyle: .styleSingle)
+    .append("Quote by Russel T Davies", color: .purple, font: UIFont(name: "Georgia", size: 15)!, strikeThroughStyle: .styleSingle)
 
 textView.attributedText = string
 ```
