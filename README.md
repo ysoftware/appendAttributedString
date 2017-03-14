@@ -9,7 +9,7 @@ Here's an example:
 
 ```swift
 let textView = UITextView()
-var string = NSMutableAttributedString()
+let string = NSMutableAttributedString()
 
 // dynamic fonts
 string.appendSubheadline("You want weapons?\n")
