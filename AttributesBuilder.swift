@@ -8,7 +8,7 @@
 
 import UIKit
 
-/** Helper class for creation of attributes for an NSAttributedString. */
+/** Helper class for creation of attributes for an NSAttributedString. Request `value` to get the final dictionary.*/
 class AttributesBuilder {
     var value:[String:Any]
 
