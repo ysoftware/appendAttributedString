@@ -22,7 +22,7 @@ extension NSMutableAttributedString {
      */
     @discardableResult
     open func append(_ string:String,
-                     withAttributes attributes:[String : Any]? = nil) -> Self {
+                     withAttributes attributes:[String : Any]) -> Self {
         append(NSAttributedString(string: string, attributes: attributes))
         return self
     }
