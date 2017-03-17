@@ -2,8 +2,8 @@
 
 #### Extension that adds methods for appending text to a NSMutableAttributedString
 
-Supports dynamic fonts, colors, underlines and strike through. You can chain append calls.
-Saves lots of time. And space.
+Supports dynamic fonts, colors, underlines, strike through, images and you can chain append calls.
+And with the AttributesBuilder class it's easy to create attribute sets for Attributed String.
 
 Here's an example:
 
@@ -12,21 +12,34 @@ let textView = UITextView()
 let string = NSMutableAttributedString()
 
 // dynamic fonts
-string.appendSubheadline("You want weapons?\n")
-    .appendBody("We're in a library.\n")
-    .appendHeadline("BOOKS!\n")
+string.appendHeadline("Life can rise,\n")
 
-// color, underline, strike-through
-string.append("Books are the best weapon in the world.\n", color: .brown, style: .headline)
-    .append("This room's the greatest arsenal we could have!\n", color: .orange, font: UIFont(name: "Georgia", size: 20)!)
-    .append("Arm yourself\n\n", color: .gray, style: .headline, underlineStyle: .styleThick)
-    .appendHeadline("© The Doctor\n")
-    .append("Quote by Russel T Davies", color: .purple, font: UIFont(name: "Georgia", size: 15)!, strikeThroughStyle: .styleSingle)
+    // call chaining
+    .appendFootnote("it can fall.\n\n")
+
+    // color, underline, strike through, superscript and others
+    .append("But in the end\nit's just carried ", color: .white, underlineStyle: NSUnderlineStyle.byWord)
+    .append("with the wind\n", color: .yellow, font:UIFont.systemFont(ofSize: 10), baselineOffset: 5)
+    .append("and one day everything you do will simply cease to be…\n\n", color: .green, underlineStyle: NSUnderlineStyle.styleDouble)
+    .append("Like a child's ", color: .white)
+
+    // and even images
+    .append(image: UIImage(named: "balloon")!, height: 20)
+
+    // In specal cases use AttributesBuilder class for easier attributes set up
+    .append("\n\nwhen it's lost, it's a tragic affair\n", withAttributes:
+        AttributesBuilder()
+            .color(.white)
+            .shadow(offset: CGSize(width: 7, height: -5), blurRadius: 5, color: .yellow)
+            .outline(width: -2, color: .red).value)
+
+    .append("- but it is quickly forgotten.", withAttributes:
+        AttributesBuilder().strikeThrough(.styleSingle, color: .white).value)
 
 textView.attributedText = string
 ```
 
-![result](https://github.com/ysoftware/appendAttributedStringWithEase/blob/master/image.png?raw=true)
+![result](https://github.com/ysoftware/appendAttributedStringWithEase/blob/master/image2.png?raw=true)
 
 #### Installation
 

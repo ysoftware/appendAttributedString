@@ -26,12 +26,6 @@ class AttributesBuilder {
         return self
     }
 
-    func outline(width:Float?, color:UIColor?) -> Self {
-        value[NSStrokeWidthAttributeName] = width
-        value[NSStrokeColorAttributeName] = color
-        return self
-    }
-
     func shadow(offset:CGSize, blurRadius:CGFloat, color:UIColor) -> Self {
         let shadow = NSShadow()
         shadow.shadowOffset = offset
@@ -41,7 +35,6 @@ class AttributesBuilder {
         return self
     }
 
-    /** Use this attribute to specify a text effect, such as `NSText​Effect​Letterpress​Style`. */
     func apply​Letterpress​Effect() -> Self {
         value[NSTextEffectAttributeName] = NSTextEffectLetterpressStyle
         return self
@@ -57,13 +50,13 @@ class AttributesBuilder {
         return self
     }
 
-    func baseline(offset:Float?) -> Self {
+    func baseline(offset:CGFloat?) -> Self {
         value[NSBaselineOffsetAttributeName] = offset
         return self
     }
 
-    func underline(_ style: Int?, color:UIColor? = nil) -> Self {
-        value[NSUnderlineStyleAttributeName] = style
+    func underline(_ style: NSUnderlineStyle?, color:UIColor? = nil) -> Self {
+        value[NSUnderlineStyleAttributeName] = style?.rawValue
         value[NSUnderlineColorAttributeName] = color
         return self
     }
@@ -73,12 +66,11 @@ class AttributesBuilder {
         return self
     }
 
-    func strikeThrough(_ style: Int?, color:UIColor? = nil) -> Self {
-        value[NSStrikethroughStyleAttributeName] = style
+    func strikeThrough(_ style: NSUnderlineStyle?, color:UIColor? = nil) -> Self {
+        value[NSStrikethroughStyleAttributeName] = style?.rawValue
         value[NSStrikethroughColorAttributeName] = color
         return self
     }
-
 
     func obliqueness(_ skew:Float?) -> Self {
         value[NSObliquenessAttributeName] = skew
@@ -95,11 +87,13 @@ class AttributesBuilder {
         return self
     }
 
-    /** If font is not set up before this method, system font of size 16 will be used as a base. */
-    func superscript(scale: CGFloat = 0.7, baselineOffset:Float = 10) -> Self {
-        let font = (value[NSFontAttributeName] as? UIFont) ?? UIFont.systemFont(ofSize: 16)
-        value[NSFontAttributeName] = font.withSize(font.pointSize*scale)
-        value[NSBaselineOffsetAttributeName] = baselineOffset
+    /**  Set negative width value to have both fill and stroke.
+
+     More info: https://developer.apple.com/library/prerelease/content/qa/qa1531/_index.html#//apple_ref/doc/uid/DTS40007490
+     */
+    func outline(width:Float?, color:UIColor?) -> Self {
+        value[NSStrokeWidthAttributeName] = width
+        value[NSStrokeColorAttributeName] = color
         return self
     }
 

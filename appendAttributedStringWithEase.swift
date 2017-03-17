@@ -47,32 +47,15 @@ extension NSMutableAttributedString {
                      style:UIFontTextStyle? = nil,
                      underlineStyle:NSUnderlineStyle? = nil,
                      strikeThroughStyle:NSUnderlineStyle? = nil,
+                     baselineOffset:CGFloat? = nil,
                      attributes:[String : Any] = [:]) -> Self {
         return append(string,
                       withAttributes: AttributesBuilder(attributes)
                         .font(style != nil ? UIFont.preferredFont(forTextStyle: style!) : font)
                         .color(color)
-                        .underline(underlineStyle?.rawValue)
-                        .strikeThrough(strikeThroughStyle?.rawValue).value)
-    }
-
-    /**
-     Adds a string with a superscript string with a given font of smaller size.
-
-     - Parameters:
-        - string: A string you want to add.
-        - font: An instance of UIFont.
-        - baselineOffset: Baseline offset of the string. Default is 10.
-        - fontScale: Multiplier of font's size. Default is 0.7.
-     - Returns: This instance of NSMutableAttributedString for call chaining.
-     */
-    @discardableResult
-    open func appendSuperscript(_ string:String, font:UIFont,
-                                fontScale scale:CGFloat = 0.7,
-                                baselineOffset offset:Float = 10) -> Self {
-        return append(string,
-                      attributes: AttributesBuilder()
-                        .font(font).superscript(scale: scale, baselineOffset: offset).value)
+                        .underline(underlineStyle)
+                        .baseline(offset: baselineOffset)
+                        .strikeThrough(strikeThroughStyle).value)
     }
 
     /**
