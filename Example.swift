@@ -24,9 +24,9 @@ class ViewController: UIViewController {
             .appendFootnote("it can fall.\n\n")
 
             // color, underline, strike through, superscript and others
-            .append("But in the end\nit's just carried ", color: .white, underlineStyle: NSUnderlineStyle.byWord)
+            .append("But in the end\nit's just carried ", color: .white)
             .append("with the wind\n", color: .yellow, font:UIFont.systemFont(ofSize: 10), baselineOffset: 5)
-            .append("and one day everything you do will simply cease to be…\n\n", color: .green, underlineStyle: NSUnderlineStyle.styleDouble)
+            .append("and one day everything you do will simply cease to be…\n\n", color: .green, underlineStyle: .styleDouble)
             .append("Like a child's ", color: .white)
 
             // and even images
