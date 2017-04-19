@@ -1,6 +1,6 @@
 # append(attributedString, with: ease)
 
-#### Extension that adds methods for appending text to a NSMutableAttributedString
+#### An extension that adds a way for easier work with NSMutableAttributedString.
 
 Supports dynamic fonts, colors, underlines, strike through, images and you can chain append calls.
 And with the AttributesBuilder class it's easy to create attribute sets for Attributed String.
