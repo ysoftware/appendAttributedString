@@ -9,6 +9,7 @@
 import UIKit
 import Foundation
 
+
 class ViewController: UIViewController {
     @IBOutlet weak var textView: UILabel!
 
@@ -33,15 +34,17 @@ class ViewController: UIViewController {
             .append(image: UIImage(named: "balloon")!, height: 20)
 
             // In specal cases use AttributesBuilder class for easier attributes set up
-            .append("\n\nwhen it's lost, it's a tragic affair\n", withAttributes:
-                AttributesBuilder()
-                    .color(.white)
-                    .shadow(offset: CGSize(width: 7, height: -5), blurRadius: 5, color: .yellow)
-                    .outline(width: -2, color: .red).value)
+
+            .append("\n\nwhen it's lost, it's a tragic affair\n",
+                    withAttributes: AttributesBuilder()
+                        .color(.white)
+                        .shadow(offset: CGSize(width: 7, height: -5), blurRadius: 5, color: .yellow)
+                        .outline(width: -2, color: .red)
+                        .value)
 
             .append("- but it is quickly forgotten.", withAttributes:
                 AttributesBuilder().strikeThrough(.styleSingle, color: .white).value)
-        
+
         textView.attributedText = string
     }
 }

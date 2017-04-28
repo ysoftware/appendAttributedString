@@ -9,24 +9,26 @@
 import UIKit
 
 /** Helper class for creation of attributes for an NSAttributedString. Request `value` to get the final dictionary.*/
-class AttributesBuilder {
-    var value:[String:Any]
+open class AttributesBuilder {
 
-    init(_ attributes:[String:Any] = [:]) {
+    /** Returns final dictionary to use with NSAttributedString. */
+    open var value:[String:Any]
+
+    public init(_ attributes:[String:Any] = [:]) {
         value = attributes
     }
 
-    func color(_ color:UIColor?) -> Self {
+    open func color(_ color:UIColor?) -> Self {
         value[NSForegroundColorAttributeName] = color
         return self
     }
 
-    func backgroundColor(_ color:UIColor?) -> Self {
+    open func backgroundColor(_ color:UIColor?) -> Self {
         value[NSBackgroundColorAttributeName] = color
         return self
     }
 
-    func shadow(offset:CGSize, blurRadius:CGFloat, color:UIColor) -> Self {
+    open func shadow(offset:CGSize, blurRadius:CGFloat, color:UIColor) -> Self {
         let shadow = NSShadow()
         shadow.shadowOffset = offset
         shadow.shadowBlurRadius = blurRadius
@@ -35,63 +37,68 @@ class AttributesBuilder {
         return self
     }
 
-    func apply​Letterpress​Effect() -> Self {
-        value[NSTextEffectAttributeName] = NSTextEffectLetterpressStyle
+    open func removeShadow() -> Self {
+        value[NSShadowAttributeName] = nil
         return self
     }
 
-    func font(_ font:UIFont?) -> Self {
+    open func enableLetterpress​Effect(_ enabled:Bool) -> Self {
+        value[NSTextEffectAttributeName] = enabled ? NSTextEffectLetterpressStyle : nil
+        return self
+    }
+
+    open func font(_ font:UIFont?) -> Self {
         value[NSFontAttributeName] = font
         return self
     }
 
-    func paragraph(style:NSParagraphStyle?) -> Self {
+    open func paragraph(style:NSParagraphStyle?) -> Self {
         value[NSParagraphStyleAttributeName] = style
         return self
     }
 
-    func baseline(offset:CGFloat?) -> Self {
+    open func baseline(offset:CGFloat?) -> Self {
         value[NSBaselineOffsetAttributeName] = offset
         return self
     }
 
-    func underline(_ style: NSUnderlineStyle?, color:UIColor? = nil) -> Self {
+    open func underline(_ style: NSUnderlineStyle?, color:UIColor? = nil) -> Self {
         value[NSUnderlineStyleAttributeName] = style?.rawValue
         value[NSUnderlineColorAttributeName] = color
         return self
     }
 
-    func expansion(factor:Float?) -> Self {
+    open func expansion(factor:Float?) -> Self {
         value[NSExpansionAttributeName] = factor
         return self
     }
 
-    func strikeThrough(_ style: NSUnderlineStyle?, color:UIColor? = nil) -> Self {
+    open func strikeThrough(_ style: NSUnderlineStyle?, color:UIColor? = nil) -> Self {
         value[NSStrikethroughStyleAttributeName] = style?.rawValue
         value[NSStrikethroughColorAttributeName] = color
         return self
     }
 
-    func obliqueness(_ skew:Float?) -> Self {
+    open func obliqueness(_ skew:Float?) -> Self {
         value[NSObliquenessAttributeName] = skew
         return self
     }
 
-    func kern(_ points:Float?) -> Self {
+    open func kern(_ points:Float?) -> Self {
         value[NSKernAttributeName] = points
         return self
     }
 
-    func link(_ url:URL?) -> Self {
+    open func link(_ url:URL?) -> Self {
         value[NSLinkAttributeName] = url
         return self
     }
 
     /**  Set negative width value to have both fill and stroke.
-
-     More info: https://developer.apple.com/library/prerelease/content/qa/qa1531/_index.html#//apple_ref/doc/uid/DTS40007490
+     More info: 
+     https://developer.apple.com/library/prerelease/content/qa/qa1531/_index.html#//apple_ref/doc/uid/DTS40007490
      */
-    func outline(width:Float?, color:UIColor?) -> Self {
+    open func outline(width:Float?, color:UIColor?) -> Self {
         value[NSStrokeWidthAttributeName] = width
         value[NSStrokeColorAttributeName] = color
         return self
