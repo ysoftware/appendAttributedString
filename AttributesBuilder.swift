@@ -20,20 +20,6 @@ open class AttributesBuilder {
 
     // MARK: - Methods
 
-    @available(iOS 11, *)
-    open static func dynamic(_ font:UIFont,
-                             maximumPointSize maxSize: CGFloat? = nil,
-                             scaleAs style: UIFontTextStyle? = nil,
-                             compatibleWith traits: UITraitCollection? = nil) -> UIFont {
-        let metrics:UIFontMetrics
-        if let style_ = style { metrics = UIFontMetrics(forTextStyle: style_) }
-        else { metrics = UIFontMetrics.default }
-        if let maxSize_ = maxSize {
-            return metrics.scaledFont(for: font, maximumPointSize: maxSize_, compatibleWith: traits)
-        }
-        return metrics.scaledFont(for: font, compatibleWith: traits)
-    }
-
     /// Returns the dynamic font set up with dynamic(font:maximumPointSize:scaleAs:compatibleWith:) function.
     @available(iOS 11, *)
     open var dynamicFont:UIFont? {
@@ -46,7 +32,7 @@ open class AttributesBuilder {
                       maximumPointSize maxSize: CGFloat,
                       scaleAs style: UIFontTextStyle? = nil,
                       compatibleWith traits: UITraitCollection? = nil) -> Self {
-        return self.font(AttributesBuilder.dynamic(font, maximumPointSize: maxSize,
+        return self.font(.dynamic(font, maximumPointSize: maxSize,
                                                    scaleAs: style, compatibleWith: traits))
     }
 
@@ -135,5 +121,20 @@ open class AttributesBuilder {
         value[NSAttributedStringKey.strokeColor] = color
         return self
     }
+}
 
+@available(iOS 11, *)
+public extension UIFont {
+    public static func dynamic(_ font:UIFont,
+                             maximumPointSize maxSize: CGFloat? = nil,
+                             scaleAs style: UIFontTextStyle? = nil,
+                             compatibleWith traits: UITraitCollection? = nil) -> UIFont {
+        let metrics:UIFontMetrics
+        if let style_ = style { metrics = UIFontMetrics(forTextStyle: style_) }
+        else { metrics = UIFontMetrics.default }
+        if let maxSize_ = maxSize {
+            return metrics.scaledFont(for: font, maximumPointSize: maxSize_, compatibleWith: traits)
+        }
+        return metrics.scaledFont(for: font, compatibleWith: traits)
+    }
 }
