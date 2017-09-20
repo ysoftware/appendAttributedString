@@ -9,7 +9,6 @@
 import UIKit
 import Foundation
 
-
 class ViewController: UIViewController {
     @IBOutlet weak var textView: UILabel!
 
@@ -26,12 +25,15 @@ class ViewController: UIViewController {
 
             // color, underline, strike through, superscript and others
             .append("But in the end\nit's just carried ", color: .white)
-            .append("with the wind\n", color: .yellow, font:UIFont.systemFont(ofSize: 10), baselineOffset: 5)
+            .append("with the wind\n", color: .yellow,
+                    font: .dynamic(.systemFont(ofSize: 10)),
+                    baselineOffset: 5)
             .append("and one day everything you do will simply cease to be…\n\n", color: .green, underlineStyle: .styleDouble)
             .append("Like a child's ", color: .white)
 
             // and even images
-            .append(image: UIImage(named: "balloon")!, height: 20)
+            .append(image: UIImage(named: "balloon")!,
+                    height: UIFontMetrics.default.scaledValue(for: 20)) // will not auto-adjust though
 
             // In specal cases use AttributesBuilder class for easier attributes set up
 

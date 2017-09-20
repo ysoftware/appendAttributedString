@@ -1,4 +1,5 @@
 # append(attributedString, with: ease)
+Updated to Swift 4.
 
 #### An extension that adds a way for easier work with NSMutableAttributedString.
 
@@ -19,19 +20,25 @@ string.appendHeadline("Life can rise,\n")
 
     // color, underline, strike through, superscript and others
     .append("But in the end\nit's just carried ", color: .white)
-    .append("with the wind\n", color: .yellow, font:UIFont.systemFont(ofSize: 10), baselineOffset: 5)
-    .append("and one day everything you do will simply cease to be…\n\n", color: .green, underlineStyle: .styleDouble)
+    .append("with the wind\n", color: .yellow,
+        font: .dynamic(.systemFont(ofSize: 10)),
+        baselineOffset: 5)
+    .append("and one day everything you do will simply cease to be…\n\n",
+        color: .green, underlineStyle: .styleDouble)
     .append("Like a child's ", color: .white)
 
     // and even images
-    .append(image: UIImage(named: "balloon")!, height: 20)
+    .append(image: UIImage(named: "balloon")!,
+        height: UIFontMetrics.default.scaledValue(for: 20)) // will not auto-adjust though
 
     // In specal cases use AttributesBuilder class for easier attributes set up
-    .append("\n\nwhen it's lost, it's a tragic affair\n", withAttributes:
-        AttributesBuilder()
+
+    .append("\n\nwhen it's lost, it's a tragic affair\n",
+        withAttributes: AttributesBuilder()
             .color(.white)
             .shadow(offset: CGSize(width: 7, height: -5), blurRadius: 5, color: .yellow)
-            .outline(width: -2, color: .red).value)
+            .outline(width: -2, color: .red)
+            .value)
 
     .append("- but it is quickly forgotten.", withAttributes:
         AttributesBuilder().strikeThrough(.styleSingle, color: .white).value)
