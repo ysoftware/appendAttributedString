@@ -23,7 +23,7 @@ open class AttributesBuilder {
     /// Returns the dynamic font set up with dynamic(font:maximumPointSize:scaleAs:compatibleWith:) function.
     @available(iOS 11, *)
     open var dynamicFont:UIFont? {
-        return value[NSAttributedStringKey.font] as? UIFont
+        return value[.font] as? UIFont
     }
 
     /// Set up your font as dynamic.
@@ -37,12 +37,12 @@ open class AttributesBuilder {
     }
 
     open func color(_ color:UIColor?) -> Self {
-        value[NSAttributedStringKey.foregroundColor] = color
+        value[.foregroundColor] = color
         return self
     }
 
     open func backgroundColor(_ color:UIColor?) -> Self {
-        value[NSAttributedStringKey.backgroundColor] = color
+        value[.backgroundColor] = color
         return self
     }
 
@@ -51,64 +51,64 @@ open class AttributesBuilder {
         shadow.shadowOffset = offset
         shadow.shadowBlurRadius = blurRadius
         shadow.shadowColor = color
-        value[NSAttributedStringKey.shadow] = shadow
+        value[.shadow] = shadow
         return self
     }
 
     open func removeShadow() -> Self {
-        value[NSAttributedStringKey.shadow] = nil
+        value[.shadow] = nil
         return self
     }
 
     open func enableLetterpress​Effect(_ enabled:Bool) -> Self {
-        value[NSAttributedStringKey.textEffect] = enabled ? NSAttributedString.TextEffectStyle.letterpressStyle : nil
+        value[.textEffect] = enabled ? NSAttributedString.TextEffectStyle.letterpressStyle : nil
         return self
     }
 
     open func font(_ font:UIFont?) -> Self {
-        value[NSAttributedStringKey.font] = font
+        value[.font] = font
         return self
     }
 
     open func paragraph(style:NSParagraphStyle?) -> Self {
-        value[NSAttributedStringKey.paragraphStyle] = style
+        value[.paragraphStyle] = style
         return self
     }
 
     open func baseline(offset:CGFloat?) -> Self {
-        value[NSAttributedStringKey.baselineOffset] = offset
+        value[.baselineOffset] = offset
         return self
     }
 
     open func underline(_ style: NSUnderlineStyle?, color:UIColor? = nil) -> Self {
-        value[NSAttributedStringKey.underlineStyle] = style?.rawValue
-        value[NSAttributedStringKey.underlineColor] = color
+        value[.underlineStyle] = style?.rawValue
+        value[.underlineColor] = color
         return self
     }
 
     open func expansion(factor:Float?) -> Self {
-        value[NSAttributedStringKey.expansion] = factor
+        value[.expansion] = factor
         return self
     }
 
     open func strikeThrough(_ style: NSUnderlineStyle?, color:UIColor? = nil) -> Self {
-        value[NSAttributedStringKey.strikethroughStyle] = style?.rawValue
-        value[NSAttributedStringKey.strikethroughColor] = color
+        value[.strikethroughStyle] = style?.rawValue
+        value[.strikethroughColor] = color
         return self
     }
 
     open func obliqueness(_ skew:Float?) -> Self {
-        value[NSAttributedStringKey.obliqueness] = skew
+        value[.obliqueness] = skew
         return self
     }
 
     open func kern(_ points:Float?) -> Self {
-        value[NSAttributedStringKey.kern] = points
+        value[.kern] = points
         return self
     }
 
     open func link(_ url:URL?) -> Self {
-        value[NSAttributedStringKey.link] = url
+        value[.link] = url
         return self
     }
 
@@ -117,8 +117,8 @@ open class AttributesBuilder {
     ///
     /// https://developer.apple.com/library/prerelease/content/qa/qa1531/_index.html#//apple_ref/doc/uid/DTS40007490
     open func outline(width:Float?, color:UIColor?) -> Self {
-        value[NSAttributedStringKey.strokeWidth] = width
-        value[NSAttributedStringKey.strokeColor] = color
+        value[.strokeWidth] = width
+        value[.strokeColor] = color
         return self
     }
 }
