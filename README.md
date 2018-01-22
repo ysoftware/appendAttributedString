@@ -20,16 +20,18 @@ string.appendHeadline("Life can rise,\n")
 
     // color, underline, strike through, superscript and others
     .append("But in the end\nit's just carried ", color: .white)
-    .append("with the wind\n", color: .yellow,
+    .append("with the wind\n", 
+        color: .yellow,
         font: .dynamic(.systemFont(ofSize: 10)),
         baselineOffset: 5)
     .append("and one day everything you do will simply cease to be…\n\n",
-        color: .green, underlineStyle: .styleDouble)
+        color: .green, 
+        underlineStyle: .styleDouble)
     .append("Like a child's ", color: .white)
 
     // and even images
     .append(image: UIImage(named: "balloon")!,
-        height: UIFontMetrics.default.scaledValue(for: 20)) // will not auto-adjust though
+        height: UIFontMetrics.default.scaledValue(for: 20)) // (the image will not auto-adjust its height)
 
     // In specal cases use AttributesBuilder class for easier attributes set up
 
