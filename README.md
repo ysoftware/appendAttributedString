@@ -34,13 +34,13 @@ string.appendHeadline("Life can rise,\n")
         height: UIFontMetrics.default.scaledValue(for: 20)) // (the image will not auto-adjust its height)
 
     // In specal cases use AttributesBuilder class for easier attributes set up
-
     .append("\n\nwhen it's lost, it's a tragic affair\n",
         withAttributes: AttributesBuilder()
-            .color(.white)
-            .shadow(offset: CGSize(width: 7, height: -5), blurRadius: 5, color: .yellow)
-            .outline(width: -2, color: .red)
-            .value)
+                        .color(.white)
+                        .shadow(offset: CGSize(width: 7, height: -5),
+                                               blurRadius: 5, color: .yellow)
+                        .outline(width: -2, color: .red)
+                        .value)
 
     .append("- but it is quickly forgotten.", withAttributes:
         AttributesBuilder().strikeThrough(.styleSingle, color: .white).value)
