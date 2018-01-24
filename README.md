@@ -40,10 +40,10 @@ string.appendHeadline("Life can rise,\n")
                         .shadow(offset: CGSize(width: 7, height: -5),
                                                blurRadius: 5, color: .yellow)
                         .outline(width: -2, color: .red)
-                        .value)
+                        .build())
 
     .append("- but it is quickly forgotten.", withAttributes:
-        AttributesBuilder().strikeThrough(.styleSingle, color: .white).value)
+        AttributesBuilder().strikeThrough(.styleSingle, color: .white).build())
 
 textView.attributedText = string
 ```
