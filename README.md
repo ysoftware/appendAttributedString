@@ -6,6 +6,11 @@ Updated to Swift 4.
 Supports dynamic fonts, colors, underlines, strike through, images and you can chain append calls.
 And with the AttributesBuilder class it's easy to create attribute sets for Attributed String.
 
+Install with Cocoapods:
+```
+pod 'appendAttributedString'
+```
+
 Here's an example:
 
 ```swift
@@ -49,7 +54,3 @@ textView.attributedText = string
 ```
 
 ![result](https://github.com/ysoftware/appendAttributedStringWithEase/blob/master/image2.png?raw=true)
-
-#### Installation
-
-Drag and drop into your project and set needed targets.
