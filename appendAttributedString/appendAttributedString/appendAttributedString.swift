@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension NSMutableAttributedString {
+public extension NSMutableAttributedString {
 
     /// Adds a string with given attributes.
     ///
@@ -17,7 +17,7 @@ extension NSMutableAttributedString {
     ///   - attributes: The attributes for the new attributed string.
     /// - Returns: This instance of NSMutableAttributedString for call chaining.
     @discardableResult
-    open func append(_ string:String,
+    public func append(_ string:String,
                      withAttributes attributes:[NSAttributedStringKey : Any]) -> Self {
         append(NSAttributedString(string: string, attributes: attributes))
         return self
@@ -36,7 +36,7 @@ extension NSMutableAttributedString {
     ///   - attributes: Additional attributed for the string. Use `AttributeBuilder` class for easier workflow.
     /// - Returns: This instance of NSMutableAttributedString for call chaining.
     @discardableResult
-    open func append(_ string:String,
+    public func append(_ string:String,
                      color:UIColor? = nil,
                      font:UIFont? = nil,
                      style:UIFontTextStyle? = nil,
@@ -60,7 +60,7 @@ extension NSMutableAttributedString {
     ///   - height: Height for the image. Default is nil - image size is left untouched.
     /// - Returns: This instance of NSMutableAttributedString for call chaining.
     @discardableResult
-    open func append(image: UIImage, height:CGFloat? = nil) -> Self {
+    public func append(image: UIImage, height:CGFloat? = nil) -> Self {
         let attachment = NSTextAttachment()
         attachment.image = image
         if let height_ = height {
@@ -76,67 +76,67 @@ extension NSMutableAttributedString {
 
     /// Adds a string with a dynamic font of style Title1. 
     @available(iOS 9.0, *) @discardableResult
-    open func appendTitle1(_ string:String) -> Self {
+    public func appendTitle1(_ string:String) -> Self {
         return append(string, font: .preferredFont(forTextStyle: .title1))
     }
 
     /// Adds a string with a dynamic font of style Title2
     @available(iOS 9.0, *) @discardableResult
-    open func appendTitle2(_ string:String) -> Self {
+    public func appendTitle2(_ string:String) -> Self {
         return append(string, font: .preferredFont(forTextStyle: .title2))
     }
 
     /// Adds a string with a dynamic font of style Title3
     @available(iOS 9.0, *) @discardableResult
-    open func appendTitle3(_ string:String) -> Self {
+    public func appendTitle3(_ string:String) -> Self {
         return append(string, font: .preferredFont(forTextStyle: .title3))
     }
 
     /// Adds a string with a dynamic font of style Callout
     @available(iOS 9.0, *) @discardableResult
-    open func appendCallout(_ string:String) -> Self {
+    public func appendCallout(_ string:String) -> Self {
         return append(string, font: .preferredFont(forTextStyle: .callout))
     }
 
     /// Adds a string with a dynamic font of style Subheadline
     @discardableResult
-    open func appendSubheadline(_ string:String) -> Self {
+    public func appendSubheadline(_ string:String) -> Self {
         return append(string, font: .preferredFont(forTextStyle: .subheadline))
     }
 
     /// Adds a string with a dynamic font of style Caption1
     @discardableResult
-    open func appendCaption1(_ string:String) -> Self {
+    public func appendCaption1(_ string:String) -> Self {
         return append(string, font: .preferredFont(forTextStyle: .caption1))
     }
 
     /// Adds a string with a dynamic font of style Caption2
     @discardableResult
-    open func appendCaption2(_ string:String) -> Self {
+    public func appendCaption2(_ string:String) -> Self {
         return append(string, font: .preferredFont(forTextStyle: .caption2))
     }
 
     /// Adds a string with a dynamic font of style Headline
     @discardableResult
-    open func appendHeadline(_ string:String) -> Self {
+    public func appendHeadline(_ string:String) -> Self {
         return append(string, font: .preferredFont(forTextStyle: .headline))
     }
 
     /// Adds a string with a dynamic font of style Footnote
     @discardableResult
-    open func appendFootnote(_ string:String) -> Self {
+    public func appendFootnote(_ string:String) -> Self {
         return append(string, font: .preferredFont(forTextStyle: .footnote))
     }
 
     /// Adds a string with a dynamic font of style Body
     @discardableResult
-    open func appendBody(_ string:String) -> Self {
+    public func appendBody(_ string:String) -> Self {
         return append(string, font: .preferredFont(forTextStyle: .body))
     }
 
     /// Adds a string with a dynamic font of style Title1 or uses the fallback option if not available
     @discardableResult
-    open func appendTitle1(_ string:String,
+    public func appendTitle1(_ string:String,
                            fallbackToStyle fallback:UIFontTextStyle? = nil) -> Self {
         if #available(iOS 9.0, *) { return appendTitle1(string) }
         else { return append(string, style: fallback) }
@@ -144,7 +144,7 @@ extension NSMutableAttributedString {
 
     /// Adds a string with a dynamic font of style Title2 or uses the fallback option if not available
     @discardableResult
-    open func appendTitle2(_ string:String,
+    public func appendTitle2(_ string:String,
                            fallbackToStyle fallback:UIFontTextStyle? = nil) -> Self {
         if #available(iOS 9.0, *) { return appendTitle2(string) }
         else { return append(string, style: fallback) }
@@ -152,7 +152,7 @@ extension NSMutableAttributedString {
 
     /// Adds a string with a dynamic font of style Title3 or uses the fallback option if not available
     @discardableResult
-    open func appendTitle3(_ string:String,
+    public func appendTitle3(_ string:String,
                            fallbackToStyle fallback:UIFontTextStyle? = nil) -> Self {
         if #available(iOS 9.0, *) { return appendTitle3(string) }
         else { return append(string, style: fallback) }
@@ -160,7 +160,7 @@ extension NSMutableAttributedString {
 
     /// Adds a string with a dynamic font of style Callout
     @discardableResult
-    open func appendCallout(_ string:String,
+    public func appendCallout(_ string:String,
                             fallbackToStyle fallback:UIFontTextStyle? = nil) -> Self {
         if #available(iOS 9.0, *) { return appendCallout(string) }
         else { return append(string, style: fallback) }
