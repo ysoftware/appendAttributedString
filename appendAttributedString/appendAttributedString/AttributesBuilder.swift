@@ -13,15 +13,15 @@ import UIKit
 public class AttributesBuilder {
 
 	/// The dictionary to use with NSAttributedString.
-	public var value:[NSAttributedStringKey:Any]
+	public var value:[NSAttributedString.Key:Any]
 
 	/// Returns the dictionary to use with NSAttributedString.
-	public func build() -> [NSAttributedStringKey:Any] {
+	public func build() -> [NSAttributedString.Key:Any] {
 		return value
 	}
 
 	/// Initialize a new clean instance of AttributesBuilder.
-	public init(_ attributes:[NSAttributedStringKey:Any] = [:]) {
+	public init(_ attributes:[NSAttributedString.Key:Any] = [:]) {
 		value = attributes
 	}
 
@@ -44,7 +44,7 @@ public class AttributesBuilder {
 	@available(iOS 11, *)
 	public func dynamic(_ font:UIFont,
 					  maximumPointSize maxSize: CGFloat,
-					  scaleAs style: UIFontTextStyle? = nil,
+					  scaleAs style: UIFont.TextStyle? = nil,
 					  compatibleWith traits: UITraitCollection? = nil) -> Self {
 		return self.font(.dynamic(font, maximumPointSize: maxSize,
 								  scaleAs: style, compatibleWith: traits))
@@ -170,7 +170,7 @@ public extension UIFont {
 	/// 	- compatibleWith: The trait collection to use when determining compatibility.
 	public static func dynamic(_ font:UIFont,
 							   maximumPointSize maxSize: CGFloat? = nil,
-							   scaleAs style: UIFontTextStyle? = nil,
+							   scaleAs style: UIFont.TextStyle? = nil,
 							   compatibleWith traits: UITraitCollection? = nil) -> UIFont {
 		let metrics:UIFontMetrics
 		if let style_ = style { metrics = UIFontMetrics(forTextStyle: style_) }
