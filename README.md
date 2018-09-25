@@ -1,4 +1,5 @@
 # append(attributedString, with: ease)
+Swift 4.2
 
 #### An extension that adds a way for easier work with NSMutableAttributedString.
 
