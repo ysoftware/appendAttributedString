@@ -168,7 +168,7 @@ public extension UIFont {
 	/// 	- maximumPointSize: The maximum point size allowed for the font.
 	/// 	- scaleAs: A utility object for obtaining custom fonts that scale to support Dynamic Type.
 	/// 	- compatibleWith: The trait collection to use when determining compatibility.
-	public static func dynamic(_ font:UIFont,
+	static func dynamic(_ font:UIFont,
 							   maximumPointSize maxSize: CGFloat? = nil,
 							   scaleAs style: UIFont.TextStyle? = nil,
 							   compatibleWith traits: UITraitCollection? = nil) -> UIFont {
