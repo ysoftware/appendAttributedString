@@ -15,7 +15,7 @@ let package = Package(
             name: "appendAttributedStringWithEase",
             dependencies: []),
         .testTarget(
-            name: "appendAttributedStringWithEase",
+            name: "appendAttributedStringWithEaseTests",
             dependencies: ["appendAttributedStringWithEase"]),
     ]
 )
