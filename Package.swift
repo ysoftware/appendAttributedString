@@ -4,18 +4,21 @@ import PackageDescription
 
 let package = Package(
     name: "appendAttributedStringWithEase",
+	platforms: [.iOS(.v8)],
     products: [
         .library(
-            name: "appendAttributedStringWithEase",
-            targets: ["appendAttributedStringWithEase"]),
+            name: "appendAttributedString",
+            targets: ["appendAttributedString"]),
     ],
-    dependencies: [ ],
+    dependencies: [],
     targets: [
         .target(
-            name: "appendAttributedStringWithEase",
-            dependencies: []),
+            name: "appendAttributedString",
+            dependencies: [],
+			path: "appendAttributedString/appendAttributedString"),
         .testTarget(
-            name: "appendAttributedStringWithEaseTests",
-            dependencies: ["appendAttributedStringWithEase"]),
+            name: "appendAttributedStringTests",
+            dependencies: ["appendAttributedString"],
+			path: "appendAttributedString/appendAttributedStringTests")
     ]
 )
