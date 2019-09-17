@@ -1,2 +1,7 @@
 aasweDev/
 *.xcuserdatad/
+.DS_Store
+/.build
+/Packages
+/*.xcodeproj
+xcuserdata/

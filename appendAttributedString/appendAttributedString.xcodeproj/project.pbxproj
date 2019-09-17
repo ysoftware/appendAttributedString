@@ -12,6 +12,7 @@
 		71B0E73E210C5C800058E7E0 /* appendAttributedString.h in Headers */ = {isa = PBXBuildFile; fileRef = 71B0E730210C5C800058E7E0 /* appendAttributedString.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		71B0E751210C5DAA0058E7E0 /* appendAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B0E74F210C5DAA0058E7E0 /* appendAttributedString.swift */; };
 		71B0E752210C5DAA0058E7E0 /* AttributesBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B0E750210C5DAA0058E7E0 /* AttributesBuilder.swift */; };
+		71B45C4123314B670062A7F9 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B45C4023314B670062A7F9 /* Package.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +34,7 @@
 		71B0E73D210C5C800058E7E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		71B0E74F210C5DAA0058E7E0 /* appendAttributedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = appendAttributedString.swift; sourceTree = "<group>"; };
 		71B0E750210C5DAA0058E7E0 /* AttributesBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributesBuilder.swift; sourceTree = "<group>"; };
+		71B45C4023314B670062A7F9 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 		71B0E723210C5C800058E7E0 = {
 			isa = PBXGroup;
 			children = (
+				71B45C4023314B670062A7F9 /* Package.swift */,
 				71B0E72F210C5C800058E7E0 /* appendAttributedString */,
 				71B0E73A210C5C800058E7E0 /* appendAttributedStringTests */,
 				71B0E72E210C5C800058E7E0 /* Products */,
@@ -203,6 +206,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71B45C4123314B670062A7F9 /* Package.swift in Sources */,
 				71B0E752210C5DAA0058E7E0 /* AttributesBuilder.swift in Sources */,
 				71B0E751210C5DAA0058E7E0 /* appendAttributedString.swift in Sources */,
 			);
