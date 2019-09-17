@@ -43,9 +43,9 @@ public class AttributesBuilder {
 	/// 	- compatibleWith: The trait collection to use when determining compatibility.
 	@available(iOS 11, *)
 	public func dynamic(_ font:UIFont,
-					  maximumPointSize maxSize: CGFloat,
-					  scaleAs style: UIFont.TextStyle? = nil,
-					  compatibleWith traits: UITraitCollection? = nil) -> Self {
+						maximumPointSize maxSize: CGFloat,
+						scaleAs style: UIFont.TextStyle? = nil,
+						compatibleWith traits: UITraitCollection? = nil) -> Self {
 		return self.font(.dynamic(font, maximumPointSize: maxSize,
 								  scaleAs: style, compatibleWith: traits))
 	}
@@ -85,7 +85,8 @@ public class AttributesBuilder {
 	/// A graphical text effect giving glyphs the appearance of letterpress printing,
 	/// in which type is pressed into the paper.
 	public func enableLetterpress​Effect(_ enabled:Bool) -> Self {
-		value[.textEffect] = enabled ? NSAttributedString.TextEffectStyle.letterpressStyle : nil
+		let effect = enabled ? NSAttributedString.TextEffectStyle.letterpressStyle : nil
+		value[.textEffect] = effect
 		return self
 	}
 
@@ -162,6 +163,7 @@ public class AttributesBuilder {
 
 @available(iOS 11, *)
 public extension UIFont {
+
 	/// Create a iOS 11 dynamic font.
 	/// - Parameters:
 	/// 	- font: The base font to use when applying the style information.
@@ -169,14 +171,22 @@ public extension UIFont {
 	/// 	- scaleAs: A utility object for obtaining custom fonts that scale to support Dynamic Type.
 	/// 	- compatibleWith: The trait collection to use when determining compatibility.
 	static func dynamic(_ font:UIFont,
-							   maximumPointSize maxSize: CGFloat? = nil,
-							   scaleAs style: UIFont.TextStyle? = nil,
-							   compatibleWith traits: UITraitCollection? = nil) -> UIFont {
+						maximumPointSize maxSize: CGFloat? = nil,
+						scaleAs style: UIFont.TextStyle? = nil,
+						compatibleWith traits: UITraitCollection? = nil) -> UIFont {
+
 		let metrics:UIFontMetrics
-		if let style_ = style { metrics = UIFontMetrics(forTextStyle: style_) }
-		else { metrics = UIFontMetrics.default }
-		if let maxSize_ = maxSize {
-			return metrics.scaledFont(for: font, maximumPointSize: maxSize_, compatibleWith: traits)
+		if let style = style {
+			metrics = UIFontMetrics(forTextStyle: style)
+		}
+		else {
+			metrics = .default
+		}
+		
+		if let maxSize = maxSize {
+			return metrics.scaledFont(for: font,
+									  maximumPointSize: maxSize,
+									  compatibleWith: traits)
 		}
 		return metrics.scaledFont(for: font, compatibleWith: traits)
 	}
