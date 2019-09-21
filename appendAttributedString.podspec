@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "appendAttributedString"
-  s.version      = "1.1.1"
+  s.version      = "1.1.2"
   s.summary      = "An extension for NSMutableAttributedString"
 
   s.description  = <<-DESC
