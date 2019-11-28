@@ -74,6 +74,15 @@ public extension NSMutableAttributedString {
 		return self
 	}
 
+	/// Adds another attributed string and returns itself.
+	/// - Parameters:
+	///   - attributedString: Instance of an attributed string.
+	/// - Returns: This instance of NSMutableAttributedString for call chaining.
+	func append(another attributedString: NSAttributedString) -> Self {
+		append(attributedString)
+		return self
+	}
+
 	// MARK: - Dynamic Fonts
 
 	/// Adds a string with a dynamic font of style Title1.
