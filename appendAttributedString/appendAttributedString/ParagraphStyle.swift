@@ -6,7 +6,7 @@
 //  Copyright © 2017 Yaroslav Erohin. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 public extension AttributesBuilder {
 

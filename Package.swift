@@ -15,10 +15,6 @@ let package = Package(
         .target(
             name: "appendAttributedString",
             dependencies: [],
-			path: "appendAttributedString/appendAttributedString"),
-        .testTarget(
-            name: "appendAttributedStringTests",
-            dependencies: ["appendAttributedString"],
-			path: "appendAttributedString/appendAttributedStringTests")
+			path: "appendAttributedString/appendAttributedString")
     ]
 )
