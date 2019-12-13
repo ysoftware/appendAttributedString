@@ -65,7 +65,7 @@ textView.attributedText = string
 
 
 
-Breaking changes in 1.2:
+**Breaking changes in 1.2:**
 
 *Removed:*
 ```swift
