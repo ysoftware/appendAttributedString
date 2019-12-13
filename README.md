@@ -11,18 +11,6 @@ Install with Cocoapods:
 pod 'appendAttributedString'
 ```
 
-Breaking changes in 1.2:
-
-*Removed:*
-```swift
-AttributesBuilder().paragraph(style: _)
-```
-
-*Added:*
-```swift
-AttributesBuilder().paragraphStyle(_)
-```
-
 Here's an example:
 
 ```swift
@@ -74,3 +62,21 @@ textView.attributedText = string
 ```
 
 ![result](https://github.com/ysoftware/appendAttributedStringWithEase/blob/master/image2.png?raw=true)
+
+
+
+Breaking changes in 1.2:
+*Removed:*
+```swift
+AttributesBuilder().paragraph(style: _)
+```
+
+*Added:*
+```swift
+AttributesBuilder().paragraphStyle(_)
+```
+
+To ensure paragraph style to always be a mutable instance, the old method accepting a non-mutating instance was removed.
+
+The new method also reads better.
+
