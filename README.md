@@ -11,44 +11,64 @@ Install with Cocoapods:
 pod 'appendAttributedString'
 ```
 
+Breaking changes in 1.2:
+
+*Removed:*
+```swift
+AttributesBuilder().paragraph(style: _)
+```
+
+*Added:*
+```swift
+AttributesBuilder().paragraphStyle(_)
+```
+
 Here's an example:
 
 ```swift
-let textView = UITextView()
+let label = UILabel()
+label.numberOfLines = 0
+view.backgroundColor = .darkGray
+
 let string = NSMutableAttributedString()
 
-// dynamic fonts
-string.appendHeadline("Life can rise,\n")
+.appendHeadline("Life can rise,\n")
 
-    // call chaining
-    .appendFootnote("it can fall.\n\n")
+// call chaining
+.appendFootnote("it can fall.\n\n")
 
-    // color, underline, strike through, superscript and others
-    .append("But in the end\nit's just carried ", color: .white)
-    .append("with the wind\n", 
+// color, underline, strike through, superscript and others
+.append("But in the end\nit's just carried ", color: .white)
+.append("with the wind\n",
         color: .yellow,
         font: .dynamic(.systemFont(ofSize: 10)),
         baselineOffset: 5)
-    .append("and one day everything you do will simply cease to be…\n\n",
-        color: .green, 
-        underlineStyle: .styleDouble)
-    .append("Like a child's ", color: .white)
+.append("and one day everything you do will simply cease to be…\n\n",
+        color: .green,
+        underlineStyle: .double)
+.append("Like a child's ", color: .white)
 
-    // and even images
-    .append(image: UIImage(named: "balloon")!,
-        height: UIFontMetrics.default.scaledValue(for: 20)) // (the image will not auto-adjust its height)
+// even images
+.append(image: UIImage(named: "balloon")!,
+        // (the image will not auto-adjust its height)
+        height: UIFontMetrics.default.scaledValue(for: 20))
 
-    // In specal cases use AttributesBuilder class for easier attributes set up
-    .append("\n\nwhen it's lost, it's a tragic affair\n",
-        withAttributes: AttributesBuilder()
-                        .color(.white)
-                        .shadow(offset: CGSize(width: 7, height: -5),
-                                               blurRadius: 5, color: .yellow)
-                        .outline(width: -2, color: .red)
-                        .build())
+.append("\n\n")
 
-    .append("- but it is quickly forgotten.", withAttributes:
-        AttributesBuilder().strikeThrough(.styleSingle, color: .white).build())
+// In specal cases use AttributesBuilder class for easier attributes set up
+.append("when it's lost,\nit's a tragic affair\n",
+        with: AttributesBuilder()
+            .color(.white)
+            .shadow(offset: CGSize(width: -7, height: 3),
+                    blurRadius: 5, color: .yellow)
+            .outline(width: -2, color: .red)
+            .lineSpacing(30)
+            .align(.center))
+
+.append("- but it is quickly forgotten.", with:
+    AttributesBuilder()
+        .strikeThrough(.double, color: .white)
+        .align(.right))
 
 textView.attributedText = string
 ```

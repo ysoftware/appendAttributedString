@@ -8,19 +8,19 @@
 
 import UIKit
 
-/// Helper class for creation of attributes for an NSAttributedString.
+/// Helper class for creation of attributes for an `NSAttributedString`.
 /// Use `build()` or `value` to get the result.
 public class AttributesBuilder {
 
-	/// The dictionary to use with NSAttributedString.
+	/// The dictionary to use with `NSAttributedString`.
 	public var value: [NSAttributedString.Key : Any]
 
-	/// Returns the dictionary to use with NSAttributedString.
+	/// Returns the dictionary to use with `NSAttributedString`.
 	public func build() -> [NSAttributedString.Key : Any] {
 		return value
 	}
 
-	/// Initialize a new clean instance of AttributesBuilder.
+	/// Initialize a new clean instance of `AttributesBuilder`.
 	public init(_ attributes: [NSAttributedString.Key : Any] = [:]) {
 		value = attributes
 	}
@@ -28,7 +28,7 @@ public class AttributesBuilder {
 	// MARK: - Methods
 
 	/// Returns the current font you've set with
-	/// either dynamic(_:maximumPointSize:scaleAs:compatibleWith:) or font(_:)
+	/// either `dynamic(_:maximumPointSize:scaleAs:compatibleWith:)` or `font(_:)`
 	@available(iOS 11, *)
 	public var font: UIFont? {
 		return value[.font] as? UIFont
@@ -97,7 +97,7 @@ public class AttributesBuilder {
 	}
 
 	/// Set paragraph style.
-	public func paragraph(style: NSParagraphStyle?) -> Self {
+	public func paragraphStyle(_ style: NSMutableParagraphStyle?) -> Self {
 		value[.paragraphStyle] = style
 		return self
 	}
