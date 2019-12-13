@@ -66,6 +66,7 @@ textView.attributedText = string
 
 
 Breaking changes in 1.2:
+
 *Removed:*
 ```swift
 AttributesBuilder().paragraph(style: _)
